@@ -17,12 +17,12 @@ public class Inicio_busqueda extends AppCompatActivity {
 
     public void volverInicio(View view){
         Intent next;
-        next=new Intent(this, MainActivity.class);
+        next=new Intent(this, Login.class);
         startActivity(next);
     }
     public void registrarMascotaPerdida(View view){
         Intent next;
-        next=new Intent(this, Registrar_mascota_perdida.class);
+        next=new Intent(this, Inicio_Registrar_mascota_perdida.class);
         startActivity(next);
     }
     public void inicioBusqueda(View view){

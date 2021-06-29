@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Registrar_mascota_perdida">
+    tools:context=".Inicio_Registrar_mascota_perdida">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageButton
-            android:id="@+id/ib_home"
+            android:id="@+id/ib_home_perfil"
             android:layout_width="118dp"
             android:layout_height="68dp"
             android:layout_marginBottom="10dp"
@@ -32,7 +32,7 @@
             app:srcCompat="@mipmap/home" />
 
         <ImageButton
-            android:id="@+id/ib_registro"
+            android:id="@+id/ib_registro_perfil"
             android:layout_width="118dp"
             android:layout_height="68dp"
             android:layout_marginStart="3dp"
@@ -42,11 +42,11 @@
             android:onClick="registrarMascotaPerdida"
             android:scaleType="centerInside"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ib_home"
+            app:layout_constraintStart_toEndOf="@+id/ib_home_perfil"
             app:srcCompat="@mipmap/patitas" />
 
         <ImageButton
-            android:id="@+id/ib_corazon"
+            android:id="@+id/ib_corazon_perfil"
             android:layout_width="118dp"
             android:layout_height="68dp"
             android:layout_marginEnd="3dp"
@@ -56,7 +56,7 @@
             android:onClick="volverInicio"
             android:scaleType="centerInside"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/ib_home"
+            app:layout_constraintEnd_toStartOf="@+id/ib_home_perfil"
             app:srcCompat="@mipmap/kokoro" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
