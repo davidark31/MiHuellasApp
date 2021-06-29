@@ -18,16 +18,19 @@ public class Registrar_mascota_perdida extends AppCompatActivity {
         Intent next;
         next=new Intent(this, MainActivity.class);
         startActivity(next);
+        finish();
     }
     public void registrarMascotaPerdida(View view){
         Intent next;
         next=new Intent(this, Registrar_mascota_perdida.class);
         startActivity(next);
+        finish();
     }
     public void inicioBusqueda(View view){
         Intent next;
         next=new Intent(this, Inicio_busqueda.class);
         startActivity(next);
+        finish();
     }
 
 }
