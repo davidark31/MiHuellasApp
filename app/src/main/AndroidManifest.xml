@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MiHuellasApp">
-        <activity android:name=".Inicio_Registrar_mascota_perdida"></activity>
-        <activity android:name=".Inicio_busqueda" />
-        <activity android:name=".Inicio_perfil" />
-        <activity android:name=".Login">
+        <activity android:name=".Registrarse_activity"></activity>
+        <activity android:name=".Inicio_Registrar_mascota_perdidaActivity" />
+        <activity android:name=".Inicio_busquedaActivity" />
+        <activity android:name=".Inicio_perfilActivity" />
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

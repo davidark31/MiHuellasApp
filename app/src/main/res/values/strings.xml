@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">MiHuellasApp</string>
+    <string name="usuario">Usuario</string>
+    <string name="nombre">Nombre</string>
+    <string name="correo">Correo</string>
+    <string name="btn_agregar">Agregar</string>
+    <string name="contraseña">Contraseña</string>
+    <string name="btn_ingresar">Ingresar</string>
+    <string name="btn_registrar">Registrar</string>
+    <string name="btn_Editar">Editar</string>
+    <string name="btn_Buscar">Buscar</string>
+    <string name="btn_Eliminar">Eliminar</string>
+    <string name="btn_volver">Volver</string>
+    <string name="hint"> </string>
 </resources>
