@@ -19,16 +19,19 @@ public class Inicio_busquedaActivity extends AppCompatActivity {
         Intent next;
         next=new Intent(this, Inicio_perfilActivity.class);
         startActivity(next);
+        finish();
     }
     public void registrarMascotaPerdida(View view){
         Intent next;
         next=new Intent(this, Inicio_Registrar_mascota_perdidaActivity.class);
         startActivity(next);
+        finish();
     }
     public void inicioBusqueda(View view){
         Intent next;
         next=new Intent(this, Inicio_busquedaActivity.class);
         startActivity(next);
+        finish();
     }
 
 }

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,7 +26,8 @@ import java.util.HashMap;
 public class Registrarse_activity extends AppCompatActivity {
 
     private EditText usuario, nombre, correo, contraseña;
-    private Button registrar, volver;
+    private TextView login;
+    private Button registrar;
     private FirebaseAuth auth;
     private DatabaseReference mRootRef;
     private ProgressDialog pd;
@@ -37,20 +39,20 @@ public class Registrarse_activity extends AppCompatActivity {
 
         usuario = (EditText) findViewById(R.id.txt_usuario_registro);
         nombre = (EditText) findViewById(R.id.txt_nombre_registro);
-        correo = (EditText) findViewById(R.id.txt_correo_registro);
-        contraseña = (EditText) findViewById(R.id.txt_contraseña_registro);
-        registrar = (Button) findViewById(R.id.btn_registrar_usuario);
-        volver = (Button) findViewById(R.id.btn_volverALogin);
+        correo = (EditText) findViewById(R.id.txt_correo_ingreso);
+        contraseña = (EditText) findViewById(R.id.txt_contraseña_ingreso);
+        registrar = (Button) findViewById(R.id.btn_ingresar_usuario);
+        login = (TextView) findViewById(R.id.register_user);
         auth = FirebaseAuth.getInstance();
         pd = new ProgressDialog(this);
 
         mRootRef = FirebaseDatabase.getInstance().getReference();
 
-        //boton Volver
-        volver.setOnClickListener(new View.OnClickListener() {
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Registrarse_activity.this, LoginActivity.class));
+                startActivity(new Intent(Registrarse_activity.this,LoginActivity.class));
+                finish();
             }
         });
 

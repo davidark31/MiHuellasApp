@@ -11,21 +11,12 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btn_volverALogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:layout_marginLeft="6dp"
-            android:paddingLeft="16dp"
-            android:text="@string/btn_volver" />
-
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:paddingLeft="60dp"
+            android:gravity="center"
             android:text="@string/app_name"
             android:textSize="34sp" />
 
@@ -43,7 +34,8 @@
                 android:layout_marginTop="10dp"
                 android:ems="10"
                 android:hint="@string/usuario"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:importantForAutofill="no" />
 
             <EditText
                 android:id="@+id/txt_nombre_registro"
@@ -52,10 +44,11 @@
                 android:layout_marginTop="10dp"
                 android:ems="10"
                 android:hint="@string/nombre"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:importantForAutofill="no" />
 
             <EditText
-                android:id="@+id/txt_correo_registro"
+                android:id="@+id/txt_correo_ingreso"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -65,7 +58,7 @@
                 android:inputType="textEmailAddress" />
 
             <EditText
-                android:id="@+id/txt_contraseña_registro"
+                android:id="@+id/txt_contraseña_ingreso"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -75,11 +68,21 @@
                 android:inputType="textPassword" />
 
             <Button
-                android:id="@+id/btn_registrar_usuario"
+                android:id="@+id/btn_ingresar_usuario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="@string/btn_registrar" />
+
+            <TextView
+                android:id="@+id/register_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="Ya eres usuario? Ingresa"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
         </LinearLayout>
     </LinearLayout>
 

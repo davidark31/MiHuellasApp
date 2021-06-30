@@ -1,157 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-tools:context=".LoginActivity">
-
-
-<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    tools:context=".LoginActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="159dp"
-        android:background="@mipmap/background">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-
-        <ImageButton
-            android:id="@+id/ib_perfil"
-            android:layout_width="83dp"
-            android:layout_height="76dp"
-            android:layout_marginTop="24dp"
-            android:background="#00FFFFFF"
-            android:scaleType="centerInside"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@mipmap/usuario" />
-
-        <TextView
-            android:id="@+id/tv_titulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Nombre Usuario"
-            android:textSize="30sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.503"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ib_perfil" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout4"
-        android:layout_width="411dp"
-        android:layout_height="360dp">
-
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="159dp"
+            android:background="@mipmap/background">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout5"
-                android:layout_width="269dp"
-                android:layout_height="52dp"
-                android:layout_marginStart="60dp"
-                android:layout_marginLeft="60dp"
-                android:layout_marginTop="5dp"
-                android:background="#2196F3"
+
+            <ImageButton
+                android:id="@+id/ib_perfil"
+                android:layout_width="83dp"
+                android:layout_height="76dp"
+                android:layout_marginTop="24dp"
+                android:background="#00FFFFFF"
+                android:scaleType="centerInside"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_bias="0.502"
                 app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@mipmap/boton">
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@mipmap/usuario" />
 
-                <TextView
-                    android:id="@+id/tv_subtitulo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="sans-serif"
-                    android:text="Tu Familia"
-                    android:textSize="30sp"
+            <ImageButton
+                android:id="@+id/logout"
+                android:layout_width="38dp"
+                android:layout_height="46dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginRight="4dp"
+                android:background="@android:color/transparent"
+                android:scaleType="centerInside"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@mipmap/logout" />
+
+            <TextView
+                android:id="@+id/tv_titulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Nombre Usuario"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.503"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ib_perfil" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="395dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout5"
+                    android:layout_width="269dp"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#2196F3"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:srcCompat="@mipmap/boton">
 
-                <ImageButton
-                    android:id="@+id/img_agregar"
-                    android:layout_width="44dp"
-                    android:layout_height="39dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="7dp"
-                    android:background="#00FFFFFF"
-                    android:scaleType="centerInside"
-                    app:layout_constraintStart_toEndOf="@+id/tv_subtitulo"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <TextView
+                        android:id="@+id/tv_subtitulo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="sans-serif"
+                        android:text="Tu Familia"
+                        android:textSize="30sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-            <ListView
-                android:id="@+id/lv_familia"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
+                    <ImageButton
+                        android:id="@+id/img_agregar"
+                        android:layout_width="44dp"
+                        android:layout_height="39dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitCenter"
+                        app:layout_constraintStart_toEndOf="@+id/tv_subtitulo"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@mipmap/boton" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </ListView>
+                <ListView
+                    android:id="@+id/lv_familia"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-        </LinearLayout>
+                </ListView>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="411dp"
-        android:layout_height="88dp">
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <ImageButton
-            android:id="@+id/ib_home_perfil"
-            android:layout_width="118dp"
-            android:layout_height="68dp"
-            android:background="#000000"
-            android:scaleType="centerInside"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout67"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@mipmap/home" />
+            app:layout_constraintStart_toStartOf="parent">
 
-        <ImageButton
-            android:id="@+id/ib_registro_perfil"
-            android:layout_width="118dp"
-            android:layout_height="68dp"
-            android:layout_marginStart="3dp"
-            android:layout_marginLeft="3dp"
-            android:background="#000000"
-            android:scaleType="centerInside"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ib_home_perfil"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@mipmap/patitas" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/ib_corazon_perfil"
-            android:layout_width="118dp"
-            android:layout_height="68dp"
-            android:layout_marginEnd="3dp"
-            android:layout_marginRight="3dp"
-            android:background="#FF0000"
-            android:scaleType="centerInside"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/ib_home_perfil"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@mipmap/perfil" />
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageButton
+                    android:id="@+id/ib_perfil_perfil"
+                    android:layout_width="118dp"
+                    android:layout_height="68dp"
+                    android:layout_marginTop="7dp"
+                    android:background="#FF0000"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@mipmap/perfil" />
 
-</LinearLayout>
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/ib_busqueda_perfil"
+                    android:layout_width="118dp"
+                    android:layout_height="68dp"
+                    android:layout_marginTop="7dp"
+                    android:background="#000000"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@mipmap/patitas" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/ib_notificar_perfil"
+                    android:layout_width="118dp"
+                    android:layout_height="68dp"
+                    android:layout_marginTop="7dp"
+                    android:background="#000000"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@mipmap/home" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

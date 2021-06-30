@@ -4,93 +4,89 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
     tools:context=".Inicio_busquedaActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="406dp"
-        android:layout_height="88dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/ib_home_perfil"
-            android:layout_width="118dp"
-            android:layout_height="68dp"
-            android:layout_marginBottom="10dp"
-            android:background="#009688"
-            android:onClick="inicioBusqueda"
-            android:scaleType="centerInside"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@mipmap/home" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="515dp">
 
-        <ImageButton
-            android:id="@+id/ib_registro_perfil"
-            android:layout_width="118dp"
-            android:layout_height="68dp"
-            android:layout_marginStart="3dp"
-            android:layout_marginLeft="3dp"
-            android:layout_marginBottom="10dp"
-            android:background="#000000"
-            android:onClick="registrarMascotaPerdida"
-            android:scaleType="centerInside"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ib_home_perfil"
-            app:srcCompat="@mipmap/patitas" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/ib_corazon_perfil"
-            android:layout_width="118dp"
-            android:layout_height="68dp"
-            android:layout_marginEnd="3dp"
-            android:layout_marginRight="3dp"
-            android:layout_marginBottom="10dp"
-            android:background="#000000"
-            android:onClick="volverInicio"
-            android:scaleType="centerInside"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/ib_home_perfil"
-            app:srcCompat="@mipmap/kokoro" />
+                <ImageButton
+                    android:id="@+id/img_agregar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@mipmap/buscador" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#D5D5D5"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+                </ListView>
 
-        <ImageButton
-            android:id="@+id/img_agregar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:scaleType="fitStart"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@mipmap/buscador" />
+            </LinearLayout>
 
-        <ListView
-            android:layout_width="411dp"
-            android:layout_height="395dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img_agregar" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/ib_home"
+                android:layout_width="118dp"
+                android:layout_height="68dp"
+                android:layout_marginBottom="10dp"
+                android:background="#009688"
+                android:onClick="inicioBusqueda"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@mipmap/home" />
+
+            <ImageButton
+                android:id="@+id/ib_registro"
+                android:layout_width="118dp"
+                android:layout_height="68dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginBottom="10dp"
+                android:background="#000000"
+                android:onClick="registrarMascotaPerdida"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ib_home"
+                app:srcCompat="@mipmap/patitas" />
+
+            <ImageButton
+                android:id="@+id/ib_corazon"
+                android:layout_width="118dp"
+                android:layout_height="68dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_marginBottom="10dp"
+                android:background="#000000"
+                android:onClick="volverInicio"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ib_home"
+                app:srcCompat="@mipmap/kokoro" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
