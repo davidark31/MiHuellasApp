@@ -8,11 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -120,19 +118,6 @@ public class Registro_publicacion extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     public void volverInicio(View view) {
         Intent next;
         next = new Intent(this, Inicio_perfilActivity.class);
@@ -143,7 +128,7 @@ public class Registro_publicacion extends AppCompatActivity {
 
     public void registrarMascotaPerdida(View view) {
         Intent next;
-        next = new Intent(this, Inicio_Registrar_mascota_perdidaActivity.class);
+        next = new Intent(this, Inicio_RegistroActivity.class);
         startActivity(next);
         finish();
     }

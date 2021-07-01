@@ -43,6 +43,7 @@ public class Registrarse_activity extends AppCompatActivity {
         contraseña = (EditText) findViewById(R.id.txt_contraseña_ingreso);
         registrar = (Button) findViewById(R.id.btn_ingresar_usuario);
         login = (TextView) findViewById(R.id.register_user);
+
         auth = FirebaseAuth.getInstance();
         pd = new ProgressDialog(this);
 

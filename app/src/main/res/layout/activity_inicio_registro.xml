@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Inicio_Registrar_mascota_perdidaActivity">
+    tools:context=".Inicio_RegistroActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -76,6 +76,7 @@
             android:layout_width="159dp"
             android:layout_height="79dp"
             android:layout_marginTop="116dp"
+            android:onClick="CrearPublicacion"
             android:text="Tomar Foto"
             app:backgroundTint="#3F51B5"
             app:layout_constraintEnd_toEndOf="parent"
@@ -87,6 +88,7 @@
             android:layout_width="160dp"
             android:layout_height="79dp"
             android:layout_marginTop="88dp"
+            android:onClick="CrearPublicacion"
             android:text="Cargar Foto"
             app:backgroundTint="#3F51B5"
             app:layout_constraintEnd_toEndOf="parent"

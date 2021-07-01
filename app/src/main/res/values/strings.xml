@@ -14,6 +14,8 @@
     <string name="cancelar">Cancelar</string>
     <string name="hint"> </string>
 
+    <string name="lugar"></string>
+
     <string-array name="animal">
         <item>Gato</item>
         <item>Perro</item>
@@ -23,7 +25,6 @@
         <item>Hembra</item>
     </string-array>
     <string-array name="Color">
-        <item>Ninguno</item>
         <item>Amarillo</item>
         <item>Blanco</item>
         <item>Negro</item>

@@ -83,7 +83,7 @@ public class Inicio_perfilActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent next;
-                next = new Intent(Inicio_perfilActivity.this, Inicio_Registrar_mascota_perdidaActivity.class);
+                next = new Intent(Inicio_perfilActivity.this, Inicio_RegistroActivity.class);
                 startActivity(next);
                 finish();
             }
@@ -100,7 +100,7 @@ public class Inicio_perfilActivity extends AppCompatActivity {
 
     public void registrarMascotaPerdida(View view) {
         Intent next;
-        next = new Intent(this, Inicio_Registrar_mascota_perdidaActivity.class);
+        next = new Intent(this, Inicio_RegistroActivity.class);
         startActivity(next);
         finish();
     }

@@ -15,6 +15,7 @@ public class Inicio_busquedaActivity extends AppCompatActivity {
     }
 
 
+
     public void volverInicio(View view){
         Intent next;
         next=new Intent(this, Inicio_perfilActivity.class);
@@ -23,7 +24,7 @@ public class Inicio_busquedaActivity extends AppCompatActivity {
     }
     public void registrarMascotaPerdida(View view){
         Intent next;
-        next=new Intent(this, Inicio_Registrar_mascota_perdidaActivity.class);
+        next=new Intent(this, Inicio_RegistroActivity.class);
         startActivity(next);
         finish();
     }
