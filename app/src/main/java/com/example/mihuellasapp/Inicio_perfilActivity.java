@@ -14,7 +14,7 @@ import com.google.firebase.database.DatabaseReference;
 
 public class Inicio_perfilActivity extends AppCompatActivity {
 
-    private ImageButton busqueda, perfil, subir, logOut;
+    private ImageButton busqueda, perfil, subir, logOut,nuevaMascota;
     private DatabaseReference databaseReference;
     private FirebaseAuth mAuth;
     private TextView nombre;
@@ -28,6 +28,7 @@ public class Inicio_perfilActivity extends AppCompatActivity {
         busqueda = (ImageButton) findViewById(R.id.ib_busqueda_perfil);
         perfil = (ImageButton) findViewById(R.id.ib_perfil_perfil);
         subir = (ImageButton) findViewById(R.id.ib_notificar_perfil);
+        nuevaMascota = (ImageButton) findViewById(R.id.img_agregar);
         logOut = (ImageButton) findViewById(R.id.logout);
         nombre = (TextView) findViewById(R.id.tv_titulo);
 
@@ -42,6 +43,17 @@ public class Inicio_perfilActivity extends AppCompatActivity {
                 next = new Intent(Inicio_perfilActivity.this, Inicio_busquedaActivity.class);
                 startActivity(next);
                 finish();
+            }
+        });
+
+        //Pantalla Nueva Mascota
+        nuevaMascota.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent next;
+                next = new Intent(Inicio_perfilActivity.this, Registrar_MascotaActivity.class);
+                startActivity(next);
+
             }
         });
 
