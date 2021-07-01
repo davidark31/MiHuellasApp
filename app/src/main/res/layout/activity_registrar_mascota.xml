@@ -28,7 +28,7 @@
                 android:textSize="20sp" />
 
             <ImageButton
-                android:id="@+id/imageButton"
+                android:id="@+id/imb_foto"
                 android:layout_width="84dp"
                 android:layout_height="54dp"
                 android:layout_marginLeft="5dp"
@@ -58,7 +58,7 @@
                     android:layout_weight="1" />
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName"
+                    android:id="@+id/txt_nombre_mascota"
                     android:layout_width="210sp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
@@ -90,7 +90,7 @@
                     android:layout_height="wrap_content" />
 
                 <Spinner
-                    android:id="@+id/spinner2"
+                    android:id="@+id/spn_animal"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -120,7 +120,7 @@
                     android:layout_height="wrap_content" />
 
                 <Spinner
-                    android:id="@+id/spinner4"
+                    android:id="@+id/spn_sexo"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -149,7 +149,7 @@
                     android:layout_height="wrap_content" />
 
                 <Spinner
-                    android:id="@+id/spinner5"
+                    android:id="@+id/spn_raza"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -164,7 +164,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/textView12"
                     android:layout_width="40dp"
                     android:textSize="20sp"
                     android:layout_height="wrap_content"
@@ -178,7 +178,36 @@
                     android:layout_height="wrap_content" />
 
                 <Spinner
-                    android:id="@+id/spinner"
+                    android:id="@+id/spn_color"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:entries="@array/Color" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:text="Color Secundario"
+                    android:textSize="20sp" />
+
+                <Space
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content" />
+
+                <Spinner
+                    android:id="@+id/spn_color2"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -207,7 +236,7 @@
                     android:layout_height="wrap_content" />
 
                 <Spinner
-                    android:id="@+id/spinner6"
+                    android:id="@+id/spn_tamaño"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -247,21 +276,21 @@
                     app:layout_constraintTop_toBottomOf="@+id/tamaño">
 
                     <RadioButton
-                        android:id="@+id/radioButton"
+                        android:id="@+id/rdb_cachorro"
                         android:layout_width="wrap_content"
                         android:layout_height="32dp"
                         android:text="Cachorro"
                         android:textSize="16sp" />
 
                     <RadioButton
-                        android:id="@+id/radioButton2"
+                        android:id="@+id/rdb_adulto"
                         android:layout_width="wrap_content"
                         android:layout_height="32dp"
                         android:text="Adulto"
                         android:textSize="16sp" />
 
                     <RadioButton
-                        android:id="@+id/radioButton4"
+                        android:id="@+id/rdb_anciano"
                         android:layout_width="wrap_content"
                         android:layout_height="31dp"
                         android:layout_weight="1"
@@ -285,7 +314,7 @@
                     android:textSize="20sp" />
 
                 <EditText
-                    android:id="@+id/editTextTextMultiLine"
+                    android:id="@+id/txt_descripcion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
@@ -306,7 +335,7 @@
                     android:layout_weight="1" />
 
                 <Button
-                    android:id="@+id/button2"
+                    android:id="@+id/btn_cancelar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -318,7 +347,7 @@
                     android:layout_weight="1" />
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/btn_registrar_mascota"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

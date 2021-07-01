@@ -10,12 +10,12 @@ public class Mascota {
     private String color2;
     private String raza;
     private String tamaño;
-    private int edad;
+    private String edad;
     private String descripcion;
     private String estado;
     private String IdDueño;
 
-    public Mascota(String nombre, String animal, String sexo, String color, String raza, String tamaño, int edad, String descripcion, String estado, String idDueño) {
+    public Mascota(String nombre, String animal, String sexo, String color, String raza, String tamaño, String edad, String descripcion, String estado, String idDueño) {
         this.nombre = nombre;
         this.animal = animal;
         this.sexo = sexo;
@@ -98,11 +98,11 @@ public class Mascota {
         this.tamaño = tamaño;
     }
 
-    public int getEdad() {
+    public String getEdad() {
         return edad;
     }
 
-    public void setEdad(int edad) {
+    public void setEdad(String edad) {
         this.edad = edad;
     }
 

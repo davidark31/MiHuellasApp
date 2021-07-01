@@ -23,6 +23,7 @@
         <item>Hembra</item>
     </string-array>
     <string-array name="Color">
+        <item>Ninguno</item>
         <item>Amarillo</item>
         <item>Blanco</item>
         <item>Negro</item>
