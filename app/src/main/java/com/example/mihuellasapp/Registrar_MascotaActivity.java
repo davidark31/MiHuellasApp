@@ -38,14 +38,12 @@ public class Registrar_MascotaActivity extends AppCompatActivity {
     private Button cancelar, registrar;
     private FirebaseAuth auth;
     private DatabaseReference base;
-    private ListView lista;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_mascota);
-
         //asociar variables
         animal = (Spinner) findViewById(R.id.spn_animal);
         sexo = (Spinner) findViewById(R.id.spn_sexo);
@@ -63,7 +61,6 @@ public class Registrar_MascotaActivity extends AppCompatActivity {
         anciano = (RadioButton) findViewById(R.id.rdb_anciano);
         auth = FirebaseAuth.getInstance();
         base = FirebaseDatabase.getInstance().getReference();
-        lista=(ListView)findViewById(R.id.lv_familia);
 
         //Boton Registrar
         registrar.setOnClickListener(new View.OnClickListener() {
@@ -126,36 +123,6 @@ public class Registrar_MascotaActivity extends AppCompatActivity {
         map.put("Edad", edad);
         map.put("IdDueño", auth.getCurrentUser().getUid());
 
-
-        //obtenemos la lista de mascotas
-        //creamos lista para los colores
-        ArrayList<String> listaMascotas = new ArrayList<>();
-        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.lista_mascotas_usuario, listaMascotas);
-        lista.setAdapter(adapter);
-
-        //obtenemos los valores de la tabla "colores"
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Mascotas");
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull  DataSnapshot snapshot) {
-                listaMascotas.clear();
-                for (DataSnapshot snap : snapshot.getChildren()) {
-                    listaMascotas.add(snap.getValue().toString());
-                }
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(getApplicationContext(), "error al cargar" + error, Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
-
-
-
-
         base.child("Mascotas").push().setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
@@ -170,7 +137,6 @@ public class Registrar_MascotaActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Error :" + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
 
 
     }

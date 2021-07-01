@@ -1,24 +1,33 @@
 package com.example.mihuellasapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class Inicio_perfilActivity extends AppCompatActivity {
 
-    private ImageButton busqueda, perfil, subir, logOut,nuevaMascota;
+    private ImageButton busqueda, perfil, subir, logOut, nuevaMascota;
     private DatabaseReference databaseReference;
     private FirebaseAuth mAuth;
     private TextView nombre;
-
+    private ListView lista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +40,35 @@ public class Inicio_perfilActivity extends AppCompatActivity {
         nuevaMascota = (ImageButton) findViewById(R.id.img_agregar);
         logOut = (ImageButton) findViewById(R.id.logout);
         nombre = (TextView) findViewById(R.id.tv_titulo);
-
+        lista = (ListView) findViewById(R.id.lv_familia);
         nombre.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
 
+/*
+        //obtenemos la lista de mascotas
+        //creamos lista para los colores
+        ArrayList<String> listaMascotas = new ArrayList<>();
+        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.lista_mascotas_usuario, listaMascotas);
+        lista.setAdapter(adapter);
+
+        //obtenemos los valores de la tabla "colores"
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Mascotas");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                listaMascotas.clear();
+                for (DataSnapshot snap : snapshot.getChildren()) {
+                    listaMascotas.add(snap.getValue().toString());
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(getApplicationContext(), "error al cargar" + error, Toast.LENGTH_SHORT).show();
+            }
+        });
+*/
 
         //Pantalla Mascotas Perdidas
         busqueda.setOnClickListener(new View.OnClickListener() {
@@ -53,7 +88,6 @@ public class Inicio_perfilActivity extends AppCompatActivity {
                 Intent next;
                 next = new Intent(Inicio_perfilActivity.this, Registrar_MascotaActivity.class);
                 startActivity(next);
-
             }
         });
 
@@ -78,6 +112,7 @@ public class Inicio_perfilActivity extends AppCompatActivity {
                 finish();
             }
         });
+
         //pantalla reportar mascota perdida
         subir.setOnClickListener(new View.OnClickListener() {
             @Override
