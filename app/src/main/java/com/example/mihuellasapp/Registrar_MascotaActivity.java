@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -19,9 +20,13 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Registrar_MascotaActivity extends AppCompatActivity {
@@ -33,6 +38,7 @@ public class Registrar_MascotaActivity extends AppCompatActivity {
     private Button cancelar, registrar;
     private FirebaseAuth auth;
     private DatabaseReference base;
+    private ListView lista;
 
 
     @Override
@@ -57,6 +63,7 @@ public class Registrar_MascotaActivity extends AppCompatActivity {
         anciano = (RadioButton) findViewById(R.id.rdb_anciano);
         auth = FirebaseAuth.getInstance();
         base = FirebaseDatabase.getInstance().getReference();
+        lista=(ListView)findViewById(R.id.lv_familia);
 
         //Boton Registrar
         registrar.setOnClickListener(new View.OnClickListener() {
@@ -119,6 +126,36 @@ public class Registrar_MascotaActivity extends AppCompatActivity {
         map.put("Edad", edad);
         map.put("IdDueño", auth.getCurrentUser().getUid());
 
+
+        //obtenemos la lista de mascotas
+        //creamos lista para los colores
+        ArrayList<String> listaMascotas = new ArrayList<>();
+        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.lista_mascotas_usuario, listaMascotas);
+        lista.setAdapter(adapter);
+
+        //obtenemos los valores de la tabla "colores"
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Mascotas");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull  DataSnapshot snapshot) {
+                listaMascotas.clear();
+                for (DataSnapshot snap : snapshot.getChildren()) {
+                    listaMascotas.add(snap.getValue().toString());
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(getApplicationContext(), "error al cargar" + error, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+
+
+
         base.child("Mascotas").push().setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
@@ -133,6 +170,8 @@ public class Registrar_MascotaActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Error :" + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
+
 
     }
 }

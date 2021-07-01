@@ -35,6 +35,7 @@ public class Registro_publicacion extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_registro_publicacion);
 
         spAnimal = findViewById(R.id.sp_animal);
