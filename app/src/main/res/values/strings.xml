@@ -11,5 +11,36 @@
     <string name="btn_Buscar">Buscar</string>
     <string name="btn_Eliminar">Eliminar</string>
     <string name="btn_volver">Volver</string>
+    <string name="cancelar">Cancelar</string>
     <string name="hint"> </string>
+
+    <string-array name="animal">
+        <item>Gato</item>
+        <item>Perro</item>
+    </string-array>
+    <string-array name="sexo">
+        <item>Macho</item>
+        <item>Hembra</item>
+    </string-array>
+    <string-array name="Color">
+        <item>Amarillo</item>
+        <item>Blanco</item>
+        <item>Negro</item>
+        <item>Gris</item>
+        <item>Cafe Claro</item>
+        <item>Cafe Oscuro</item>
+    </string-array>
+    <string-array name="Raza">
+        <item>Quiltro</item>
+        <item>Golden</item>
+        <item>Chihuhua</item>
+        <item>Pastor Aleman</item>
+        <item>Pitbull</item>
+        <item>Rottweiler</item>
+    </string-array>
+    <string-array name="tamaño">
+        <item>Chico</item>
+        <item>Mediano</item>
+        <item>Grande</item>
+    </string-array>
 </resources>
