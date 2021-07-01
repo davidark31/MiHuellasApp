@@ -14,8 +14,9 @@ public class Mascota {
     private String descripcion;
     private String estado;
     private String IdDueño;
+    private String ImageUrl;
 
-    public Mascota(String nombre, String animal, String sexo, String color, String raza, String tamaño, String edad, String descripcion, String estado, String idDueño) {
+    public Mascota(String nombre, String animal, String sexo, String color, String raza, String tamaño, String edad, String descripcion, String estado, String idDueño,String ImageUrl) {
         this.nombre = nombre;
         this.animal = animal;
         this.sexo = sexo;
@@ -26,13 +27,22 @@ public class Mascota {
         this.descripcion = descripcion;
         this.estado = estado;
         this.IdDueño = idDueño;
+        this.ImageUrl = ImageUrl;
+
     }
 
 
     public void Mascota() {
-        estado = "En Casa";
+
     }
 
+    public String getImageUrl() {
+        return ImageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        ImageUrl = imageUrl;
+    }
 
     public String getId() {
         return id;

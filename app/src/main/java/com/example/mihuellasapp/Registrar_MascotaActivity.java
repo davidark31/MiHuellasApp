@@ -1,12 +1,16 @@
 package com.example.mihuellasapp;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.storage.StorageManager;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,6 +20,7 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -25,6 +30,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.StorageTask;
+import com.theartofdev.edmodo.cropper.CropImage;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,6 +47,9 @@ public class Registrar_MascotaActivity extends AppCompatActivity {
     private Button cancelar, registrar;
     private FirebaseAuth auth;
     private DatabaseReference base;
+    private Uri imageUri;
+    private String imageUrl;
+    private String edad;
 
 
     @Override
@@ -62,42 +74,23 @@ public class Registrar_MascotaActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         base = FirebaseDatabase.getInstance().getReference();
 
+
+
         //Boton Registrar
         registrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                //Obtenemos las variables como String
-                String nombreString = nombre.getText().toString();
-                String animalString = animal.getSelectedItem().toString();
-                String sexoString = sexo.getSelectedItem().toString();
-                String razaString = raza.getSelectedItem().toString();
-                String colorString = color.getSelectedItem().toString();
-                String color2String = color2.getSelectedItem().toString();
-                String tamañoString = tamaño.getSelectedItem().toString();
-                String descipcionString = descripcion.getText().toString();
-                String edad = "";
-
-                //comprobamos la edad de la mascota
-                if (cachorro.isChecked()) {
-                    edad = "Cachorro";
-                } else {
-                    if (adulto.isChecked()) {
-                        edad = "adulto";
-                    } else {
-                        if (anciano.isChecked()) {
-                            edad = "anciano";
-                        }
-                    }
-                }
-                if (nombreString.isEmpty() || edad.equals("")) {
-                    Toast.makeText(getApplicationContext(), "Faltan Datos", Toast.LENGTH_SHORT).show();
-                } else {
-                    registrarMascota(nombreString, animalString, sexoString, razaString, colorString, color2String, tamañoString, descipcionString, edad);
-                }
-
+                registrar();
             }
         });
+
+        foto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CropImage.activity().start(Registrar_MascotaActivity.this);
+            }
+        });
+
 
 
         //boton cancelar
@@ -110,34 +103,119 @@ public class Registrar_MascotaActivity extends AppCompatActivity {
 
     }
 
-    private void registrarMascota(String nombre, String animal, String sexo, String raza, String color, String color2, String tamaño, String descipcion, String edad) {
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("Nombre", nombre);
-        map.put("Animal", animal);
-        map.put("Sexo", sexo);
-        map.put("Raza", raza);
-        map.put("Color", color);
-        map.put("Color2", color2);
-        map.put("Tamaño", tamaño);
-        map.put("Descripcion", descipcion);
-        map.put("Edad", edad);
-        map.put("IdDueño", auth.getCurrentUser().getUid());
+    private void registrar() {
+        final ProgressDialog pd = new ProgressDialog(this);
+        pd.setMessage("Subiendo");
+        pd.show();
 
-        base.child("Mascotas").push().setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    finish();
-                    Toast.makeText(Registrar_MascotaActivity.this, "Mascota Registrada", Toast.LENGTH_SHORT).show();
+        //Obtenemos las variables como String
+        String nombreString = nombre.getText().toString();
+        String animalString = animal.getSelectedItem().toString();
+        String sexoString = sexo.getSelectedItem().toString();
+        String razaString = raza.getSelectedItem().toString();
+        String colorString = color.getSelectedItem().toString();
+        String color2String = color2.getSelectedItem().toString();
+        String tamañoString = tamaño.getSelectedItem().toString();
+        String descipcionString = descripcion.getText().toString();
+        edad = "";
+
+        //comprobamos la edad de la mascota
+        if (cachorro.isChecked()) {
+            edad = "Cachorro";
+        } else {
+            if (adulto.isChecked()) {
+                edad = "adulto";
+            } else {
+                if (anciano.isChecked()) {
+                    edad = "anciano";
                 }
             }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getApplicationContext(), "Error :" + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+        if (nombreString.isEmpty() || edad.equals("")) {
+            Toast.makeText(getApplicationContext(), "Faltan Datos", Toast.LENGTH_SHORT).show();
+        } else {
+
+
+            if (imageUri != null) {
+               final StorageReference filePath = FirebaseStorage.getInstance().getReference("FotoPerfilMascota").child(System.currentTimeMillis() + "." + obtenerExtensionArchivo(imageUri));
+                StorageTask uploadTaskt = filePath.putFile(imageUri);
+                uploadTaskt.continueWithTask(new Continuation() {
+                    @Override
+                    public Object then(@NonNull Task task) throws Exception {
+                        if (!task.isSuccessful()) {
+                            throw task.getException();
+                        }
+                        return filePath.getDownloadUrl();
+                    }
+                }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Uri> task) {
+                        Uri downlaoadUri = task.getResult();
+                        imageUrl = downlaoadUri.toString();
+                        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Mascotas");
+                        String mascotaID = ref.push().getKey();
+
+                        HashMap<String, Object> map = new HashMap<>();
+                        map.put("Nombre", nombreString);
+                        map.put("Animal", animalString);
+                        map.put("Sexo", sexoString);
+                        map.put("Raza", razaString);
+                        map.put("Color", colorString);
+                        map.put("Color2", color2String);
+                        map.put("Tamaño", tamañoString);
+                        map.put("Descripcion", descipcionString);
+                        map.put("Edad", edad);
+                        map.put("IdDueño", auth.getCurrentUser().getUid());
+                        map.put("ImageUrl", imageUrl);
+                        map.put("Id",mascotaID);
+
+                        ref.child(mascotaID).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    finish();
+                                    Toast.makeText(Registrar_MascotaActivity.this, "Mascota Registrada", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                finish();
+                                Toast.makeText(getApplicationContext(), "Error :" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(Registrar_MascotaActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            } else {
+                Toast.makeText(this, "No selecciono imagen!", Toast.LENGTH_SHORT).show();
             }
-        });
+        }
+
+    }
+
+    private String obtenerExtensionArchivo(Uri uri) {
+        return MimeTypeMap.getSingleton().getExtensionFromMimeType(getContentResolver().getType(uri));
+    }
 
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable  Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+            imageUri = result.getUri();
+
+            foto.setImageURI(imageUri);
+        } else {
+            Toast.makeText(this, "Intentelo Nuevamente!", Toast.LENGTH_SHORT).show();
+            finish();
+        }
     }
 }
