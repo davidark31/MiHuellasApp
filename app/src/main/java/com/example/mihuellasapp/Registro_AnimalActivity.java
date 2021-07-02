@@ -59,16 +59,17 @@ public class Registro_AnimalActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String animal =  spAnimal.getSelectedItem().toString();
+                String animal = spAnimal.getSelectedItem().toString();
                 String tamano = spAnimal.getSelectedItem().toString();
                 String raza = spRaza.getSelectedItem().toString();
                 String color = spColor.getSelectedItem().toString();
                 String sexo = spSexo.getSelectedItem().toString();
                 String lugar = etLugar.getText().toString();
-                
-                int selectedId=rgEdad.getCheckedRadioButtonId();
-                rbEdad=(RadioButton)findViewById(selectedId);
+
+                int selectedId = rgEdad.getCheckedRadioButtonId();
+                rbEdad = (RadioButton) findViewById(selectedId);
                 String edad = rbEdad.getText().toString();
+
 
 
                 if (lugar.isEmpty()) {
@@ -95,7 +96,7 @@ public class Registro_AnimalActivity extends AppCompatActivity {
         map.put("edad", edad);
 
 
-        databaseReference.child("TablaDesdeLa app").push().setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+        databaseReference.child("Publicaciones").push().setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {

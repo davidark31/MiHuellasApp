@@ -88,7 +88,7 @@
             android:layout_width="160dp"
             android:layout_height="79dp"
             android:layout_marginTop="88dp"
-            android:onClick="CrearPublicacion"
+            android:onClick="inicioBusqueda"
             android:text="Cargar Foto"
             app:backgroundTint="#3F51B5"
             app:layout_constraintEnd_toEndOf="parent"
