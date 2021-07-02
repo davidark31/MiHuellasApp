@@ -35,7 +35,7 @@ public class Registro_AnimalActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registro_animal);
+      //  setContentView(R.layout.activity_registro_animal);
 
         spAnimal = findViewById(R.id.sp_animal);
 

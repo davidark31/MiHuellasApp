@@ -156,6 +156,7 @@ public class Registrar_MascotaActivity extends AppCompatActivity {
                         String mascotaID = ref.push().getKey();
 
                         HashMap<String, Object> map = new HashMap<>();
+                        map.put("Id",mascotaID);
                         map.put("Nombre", nombreString);
                         map.put("Animal", animalString);
                         map.put("Sexo", sexoString);
@@ -167,7 +168,8 @@ public class Registrar_MascotaActivity extends AppCompatActivity {
                         map.put("Edad", edad);
                         map.put("IdDueño", auth.getCurrentUser().getUid());
                         map.put("ImageUrl", imageUrl);
-                        map.put("Id",mascotaID);
+                        map.put("Estado","En casa");
+
 
                         ref.child(mascotaID).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
@@ -215,7 +217,7 @@ public class Registrar_MascotaActivity extends AppCompatActivity {
             foto.setImageURI(imageUri);
         } else {
             Toast.makeText(this, "Intentelo Nuevamente!", Toast.LENGTH_SHORT).show();
-            finish();
+
         }
     }
 }

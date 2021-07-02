@@ -1,34 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/image_profile"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@mipmap/ic_launcher" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_centerVertical="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_toEndOf="@id/image_profile"
+        android:layout_toRightOf="@id/image_profile"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/nombre_mascota"
-            android:layout_width="274dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:paddingLeft="20sp"
-            android:textSize="24sp" />
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:maxLines="1"
+            android:text="@string/nombre"
+            android:textColor="@color/design_default_color_primary_dark"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
-        <ImageButton
-            android:id="@+id/foto_mascota"
-            android:layout_width="137dp"
-            android:layout_height="104dp"
-            android:background="#00FFFFFF"
-            android:paddingLeft="20sp"
-            android:scaleType="fitCenter"
-            app:srcCompat="@mipmap/doggy" />
+        <TextView
+            android:id="@+id/raza_mascota"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:maxLines="1"
+            android:text="Raza"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

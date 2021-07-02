@@ -108,14 +108,17 @@
                         app:layout_constraintStart_toEndOf="@+id/tv_subtitulo"
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@mipmap/boton" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <ListView
-                    android:id="@+id/lv_familia"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
 
-                </ListView>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view_mascotas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    tools:listitem="@layout/lista_mascotas_usuario"
+                    tools:visibility="visible" />
 
             </LinearLayout>
 
@@ -124,6 +127,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout67"
             android:layout_width="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:layout_height="wrap_content"
             android:layout_marginBottom="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
