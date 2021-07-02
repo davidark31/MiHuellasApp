@@ -21,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 
-public class Registro_publicacion extends AppCompatActivity {
+public class Registro_AnimalActivity extends AppCompatActivity {
 
     private Spinner spAnimal,spTamano, spRaza, spColor,spSexo;
     private EditText etLugar;
@@ -35,8 +35,7 @@ public class Registro_publicacion extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_registro_publicacion);
+        setContentView(R.layout.activity_registro_animal);
 
         spAnimal = findViewById(R.id.sp_animal);
 
@@ -46,10 +45,7 @@ public class Registro_publicacion extends AppCompatActivity {
         spSexo = findViewById(R.id.sp_sexo);
         etLugar = findViewById(R.id.et_lugar);
 
-
-        //rgEdad = findViewById(R.id.rg_edad);
-
-        rgEdad=(RadioGroup)findViewById(R.id.rg_edad);
+        rgEdad = (RadioGroup) findViewById(R.id.rg_edad);
 
         //rbCacho = findViewById(R.id.rb_cachorro);
         //rbAdul = findViewById(R.id.rb_adulto);
@@ -69,16 +65,14 @@ public class Registro_publicacion extends AppCompatActivity {
                 String color = spColor.getSelectedItem().toString();
                 String sexo = spSexo.getSelectedItem().toString();
                 String lugar = etLugar.getText().toString();
-
-
+                
                 int selectedId=rgEdad.getCheckedRadioButtonId();
                 rbEdad=(RadioButton)findViewById(selectedId);
-                //Toast.makeText(Registro_publicacion.this,rbEdad.getText(),Toast.LENGTH_SHORT).show();
                 String edad = rbEdad.getText().toString();
 
 
                 if (lugar.isEmpty()) {
-                    Toast.makeText(Registro_publicacion.this, "Please add some data.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Registro_AnimalActivity.this, "Lugar es Obligatorio", Toast.LENGTH_SHORT).show();
                 }else {
                     addDatatoFirebase(animal,tamano,raza,color,sexo,lugar,edad);
                 }
@@ -101,7 +95,7 @@ public class Registro_publicacion extends AppCompatActivity {
         map.put("edad", edad);
 
 
-        databaseReference.child("Publicación").push().setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+        databaseReference.child("TablaDesdeLa app").push().setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
@@ -117,27 +111,11 @@ public class Registro_publicacion extends AppCompatActivity {
 
     }
 
-
-
-    public void volverInicio(View view) {
-        Intent next;
-        next = new Intent(this, Inicio_perfilActivity.class);
-        startActivity(next);
-        finish();
-    }
-
-
-    public void registrarMascotaPerdida(View view) {
+    public void cancelar(View view) {
         Intent next;
         next = new Intent(this, Inicio_RegistroActivity.class);
         startActivity(next);
         finish();
     }
 
-    public void inicioBusqueda(View view){
-        Intent next;
-        next=new Intent(this, Inicio_busquedaActivity.class);
-        startActivity(next);
-        finish();
-    }
 }
