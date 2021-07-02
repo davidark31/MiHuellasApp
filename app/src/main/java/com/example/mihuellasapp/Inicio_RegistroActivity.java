@@ -35,7 +35,7 @@ public class Inicio_RegistroActivity extends AppCompatActivity {
 
     public void CrearPublicacion(View view){
         Intent next;
-        next=new Intent(this, Registro_publicacion.class);
+        next=new Intent (this, Registro_AnimalActivity.class);
         startActivity(next);
         finish();
     }

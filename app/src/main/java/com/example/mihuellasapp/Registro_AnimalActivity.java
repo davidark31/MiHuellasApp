@@ -59,22 +59,25 @@ public class Registro_AnimalActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String animal =  spAnimal.getSelectedItem().toString();
-                String tamano = spAnimal.getSelectedItem().toString();
+                String animal = spAnimal.getSelectedItem().toString();
+                String tamano = spTamano.getSelectedItem().toString();
                 String raza = spRaza.getSelectedItem().toString();
                 String color = spColor.getSelectedItem().toString();
                 String sexo = spSexo.getSelectedItem().toString();
                 String lugar = etLugar.getText().toString();
-                
-                int selectedId=rgEdad.getCheckedRadioButtonId();
-                rbEdad=(RadioButton)findViewById(selectedId);
+
+                int selectedId = rgEdad.getCheckedRadioButtonId();
+                rbEdad = (RadioButton) findViewById(selectedId);
                 String edad = rbEdad.getText().toString();
+
 
 
                 if (lugar.isEmpty()) {
                     Toast.makeText(Registro_AnimalActivity.this, "Lugar es Obligatorio", Toast.LENGTH_SHORT).show();
                 }else {
                     addDatatoFirebase(animal,tamano,raza,color,sexo,lugar,edad);
+                    startActivity(new Intent(Registro_AnimalActivity.this,Inicio_busquedaActivity.class));
+                    finish();
                 }
             }
         });
@@ -87,7 +90,7 @@ public class Registro_AnimalActivity extends AppCompatActivity {
 
         HashMap<String, Object> map = new HashMap<>();
         map.put("animal", animal);
-        map.put("tamaño", tamano);
+        map.put("tamano", tamano);
         map.put("raza", raza);
         map.put("color", color);
         map.put("sexo", sexo);
@@ -95,12 +98,13 @@ public class Registro_AnimalActivity extends AppCompatActivity {
         map.put("edad", edad);
 
 
-        databaseReference.child("TablaDesdeLa app").push().setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+        databaseReference.child("PublicacionesAnimalesEncontrados").push().setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
                     Toast.makeText(getApplicationContext(), "Creacion Exitosa", Toast.LENGTH_SHORT).show();
                 }
+
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -113,7 +117,7 @@ public class Registro_AnimalActivity extends AppCompatActivity {
 
     public void cancelar(View view) {
         Intent next;
-        next = new Intent(this, Inicio_RegistroActivity.class);
+        next = new Intent(this, Inicio_busquedaActivity.class);
         startActivity(next);
         finish();
     }

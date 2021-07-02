@@ -30,10 +30,9 @@
                     app:srcCompat="@mipmap/buscador" />
 
                 <ListView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                </ListView>
+                    android:id="@+id/lv_datos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
 
             </LinearLayout>
 
