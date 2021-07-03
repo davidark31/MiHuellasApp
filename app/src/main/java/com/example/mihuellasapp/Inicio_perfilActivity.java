@@ -2,25 +2,25 @@ package com.example.mihuellasapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
+
+import com.example.mihuellasapp.Adapter.AdaptadorMascotas;
+import com.example.mihuellasapp.Modelo.Mascota;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.database.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,17 +28,17 @@ import java.util.List;
 public class Inicio_perfilActivity extends AppCompatActivity {
 
     private ImageButton busqueda, perfil, subir, logOut, nuevaMascota;
-    private DatabaseReference databaseReference;
-    private FirebaseAuth mAuth;
     private TextView nombre;
-    private ListView lista;
-    private Adaptor adapter;
-    private ArrayList<Mascota> mascotas;
+    private RecyclerView recyclerView;
+    private List<Mascota> lMascotas;
+    private AdaptadorMascotas mascotasAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio_perfil);
+
 
         busqueda = (ImageButton) findViewById(R.id.ib_busqueda_perfil);
         perfil = (ImageButton) findViewById(R.id.ib_perfil_perfil);
@@ -46,27 +46,17 @@ public class Inicio_perfilActivity extends AppCompatActivity {
         nuevaMascota = (ImageButton) findViewById(R.id.img_agregar);
         logOut = (ImageButton) findViewById(R.id.logout);
         nombre = (TextView) findViewById(R.id.tv_titulo);
-        lista = (ListView) findViewById(R.id.lv_familia);
         nombre.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+        lMascotas = new ArrayList<>();
+        buscarMascotas();
 
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view_mascotas);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(Inicio_perfilActivity.this));
 
-      /*  FirebaseDatabase.getInstance().getReference().child("Mascotas").get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
-            @Override
-            public void onSuccess(DataSnapshot dataSnapshot) {
+        mascotasAdapter = new AdaptadorMascotas(lMascotas);
+        recyclerView.setAdapter(mascotasAdapter);
 
-                    Mascota m = dataSnapshot.getValue(Mascota.class);
-                    mascotas.add(m);
-
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getApplicationContext(), "error al cargar" + e, Toast.LENGTH_SHORT).show();
-            }
-        });*/
-
-       // adapter = new Adaptor(Inicio_perfilActivity.this, mascotas);
-        //lista.setAdapter(adapter);
 
         //Pantalla Mascotas Perdidas
         busqueda.setOnClickListener(new View.OnClickListener() {
@@ -123,23 +113,24 @@ public class Inicio_perfilActivity extends AppCompatActivity {
         });
     }
 
-    public void volverInicio(View view) {
-        Intent next;
-        next = new Intent(this, Inicio_perfilActivity.class);
-        startActivity(next);
-        finish();
-    }
+    public void buscarMascotas() {
+        //prueba carga de mascotas
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Mascotas");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                for (DataSnapshot snap : snapshot.getChildren()) {
+                    Mascota u = snap.getValue(Mascota.class);
+                    if (u.getIdDueño().equals(FirebaseAuth.getInstance().getCurrentUser().getUid()))
+                        lMascotas.add(u);
+                }
+            }
 
-
-    public void registrarMascotaPerdida(View view) {
-        Intent next;
-        next = new Intent(this, Inicio_RegistroActivity.class);
-        startActivity(next);
-        finish();
-    }
-
-    public void inicioBusqueda(View view) {
-
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(getApplicationContext(), "error al cargar" + error, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 }
