@@ -120,7 +120,7 @@
                     android:layout_height="wrap_content" />
 
                 <Spinner
-                    android:id="@+id/spn_sexo"
+                    android:id="@+id/spn_sexo_perfilMascota"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -199,7 +199,7 @@
                     android:layout_marginStart="5dp"
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
-                    android:text="Color Secundario"
+                    android:text="Color \n Secundario"
                     android:textSize="20sp" />
 
                 <Space
@@ -347,7 +347,7 @@
                     android:layout_weight="1" />
 
                 <Button
-                    android:id="@+id/btn_registrar_mascota"
+                    android:id="@+id/btn_editar_mascota"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

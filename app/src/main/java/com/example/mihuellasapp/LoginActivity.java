@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-            startActivity(new Intent(LoginActivity.this,Inicio_perfilActivity.class));
+            startActivity(new Intent(LoginActivity.this,PrincipalActivity.class));
             finish();
         }
     }
@@ -72,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    Intent intent = new Intent(LoginActivity.this, Inicio_perfilActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, PrincipalActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                     finish();

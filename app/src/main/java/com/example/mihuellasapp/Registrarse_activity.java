@@ -90,9 +90,9 @@ public class Registrarse_activity extends AppCompatActivity {
                 HashMap<String, Object> map = new HashMap<>();
                 map.put("Nombre", nombre);
                 map.put("Correo", correo);
-                map.put("Usuario", correo);
+                map.put("Usuario", usuario);
                 map.put("ID", auth.getCurrentUser().getUid());
-                map.put("Contraseña", correo);
+                map.put("Contraseña", contraseña);
 
                 mRootRef.child("Usuarios").child(auth.getCurrentUser().getUid()).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -100,7 +100,7 @@ public class Registrarse_activity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             pd.dismiss();
                             Toast.makeText(Registrarse_activity.this, "Creacion Exitosa", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(Registrarse_activity.this, Inicio_perfilActivity.class);
+                            Intent intent = new Intent(Registrarse_activity.this, PrincipalActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
                             finish();

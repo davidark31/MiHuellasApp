@@ -8,14 +8,11 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.storage.StorageManager;
 import android.view.View;
 import android.webkit.MimeTypeMap;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -25,17 +22,13 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.theartofdev.edmodo.cropper.CropImage;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Registrar_MascotaActivity extends AppCompatActivity {
@@ -52,13 +45,14 @@ public class Registrar_MascotaActivity extends AppCompatActivity {
     private String edad;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_mascota);
         //asociar variables
         animal = (Spinner) findViewById(R.id.spn_animal);
-        sexo = (Spinner) findViewById(R.id.spn_sexo);
+        sexo = (Spinner) findViewById(R.id.spn_sexo_perfilMascota);
         raza = (Spinner) findViewById(R.id.spn_raza);
         color = (Spinner) findViewById(R.id.spn_color);
         color2 = (Spinner) findViewById(R.id.spn_color2);
@@ -67,7 +61,7 @@ public class Registrar_MascotaActivity extends AppCompatActivity {
         descripcion = (EditText) findViewById(R.id.txt_descripcion);
         nombre = (EditText) findViewById(R.id.txt_nombre_mascota);
         cancelar = (Button) findViewById(R.id.btn_cancelar);
-        registrar = (Button) findViewById(R.id.btn_registrar_mascota);
+        registrar = (Button) findViewById(R.id.btn_editar_mascota);
         cachorro = (RadioButton) findViewById(R.id.rdb_cachorro);
         adulto = (RadioButton) findViewById(R.id.rdb_adulto);
         anciano = (RadioButton) findViewById(R.id.rdb_anciano);

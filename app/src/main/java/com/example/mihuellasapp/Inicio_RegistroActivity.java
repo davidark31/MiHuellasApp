@@ -15,10 +15,10 @@ public class Inicio_RegistroActivity extends AppCompatActivity {
     }
 
     public void volverInicio(View view){
-        Intent next;
+     /*   Intent next;
         next=new Intent(this, Inicio_perfilActivity.class);
         startActivity(next);
-        finish();
+        finish();*/
     }
     public void registrarMascotaPerdida(View view){
         Intent next;
