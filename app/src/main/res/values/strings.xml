@@ -15,6 +15,8 @@
     <string name="hint"> </string>
 
     <string name="lugar"></string>
+    <string name="Descripcion">Descripcion</string>
+    <string name="Animal">Animal</string>
 
     <string-array name="animal">
         <item>Gato</item>

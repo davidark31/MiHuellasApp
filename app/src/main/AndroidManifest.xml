@@ -11,7 +11,8 @@
         android:label="Huellas App"
         android:supportsRtl="true"
         android:theme="@style/Theme.MiHuellasApp">
-        <activity android:name=".PerfilMascotaActivity"></activity>
+        <activity android:name=".EditarPublicacionActivity"></activity>
+        <activity android:name=".PerfilMascotaActivity" />
         <activity android:name=".PrincipalActivity" />
         <activity android:name=".Registro_AnimalActivity" />
         <activity android:name=".Registrarse_activity" />

@@ -4,12 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
-import com.google.firebase.auth.FirebaseAuth;
+import com.example.mihuellasapp.Modelo.Publicacion;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -53,7 +51,7 @@ public class Inicio_busquedaActivity extends AppCompatActivity {
                 list.clear();
                 for (DataSnapshot snapshot: dataSnapshot.getChildren()){
                     Publicacion publi = snapshot.getValue(Publicacion.class);
-                    String txt = publi.getLugar() + " : " + publi.getAnimal();
+                    String txt = publi.getDescripcionPublicacion() + " : " + publi.getAnimalPublicacion();
                     list.add(txt);
                 }
                 adapter.notifyDataSetChanged();
