@@ -46,7 +46,12 @@ public class RegistroFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         lMisPublicaciones = new ArrayList<>();
-        //buscarMisPublicaciones();
+        buscarMisPublicaciones();
+
+
+        //Publicacion p = new Publicacion("-MdyoPe96p-JWf_fKu_A","Gato","Chico","Quiltro","Amarillo","Amarillo","Macho","1registro","adulto","uBhrTvSCloetSswMo4TuDdlewa83","https://firebasestorage.googleapis.com/v0/b/regal-spark-317815.appspot.com/o/FotoPublicacionEncontrados%2F1625625303162.null?alt=media&token=d7695df5-4821-4fdc-9b9d-af8e3067ed2e","-122.084","37.4219983");
+        //lMisPublicaciones.add(p);
+
 
         View view = inflater.inflate(R.layout.fragment_registro, container, false);
         recyclerView = view.findViewById(R.id.recycler_view_mis_publi);
@@ -97,15 +102,6 @@ public class RegistroFragment extends Fragment {
             }
         });
     }
-
-    public static void esperar(int segundos) {
-        try {
-            Thread.sleep(segundos * 1000);
-        } catch (Exception e) {
-
-        }
-    }
-
 
 }
 

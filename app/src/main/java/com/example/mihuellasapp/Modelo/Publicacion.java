@@ -13,13 +13,13 @@ public class Publicacion {
     private String Edad;
     private String IdDueno;
     private String ImageUrl;
-    private String Latitud;
-    private String Longitud;
+    private Double Latitud;
+    private Double Longitud;
 
     public Publicacion() {
     }
 
-    public Publicacion(String id, String animal, String tamano, String raza, String color, String color2, String sexo, String descripcion, String edad, String idDueno, String imageUrl, String latitud, String longitud) {
+    public Publicacion(String id, String animal, String tamano, String raza, String color, String color2, String sexo, String descripcion, String edad, String idDueno, String imageUrl, Double latitud, Double longitud) {
         Id = id;
         Animal = animal;
         Tamano = tamano;
@@ -123,19 +123,19 @@ public class Publicacion {
         ImageUrl = imageUrl;
     }
 
-    public String getLatitud() {
+    public Double getLatitud() {
         return Latitud;
     }
 
-    public void setLatitud(String latitud) {
+    public void setLatitud(Double latitud) {
         Latitud = latitud;
     }
 
-    public String getLongitud() {
+    public Double getLongitud() {
         return Longitud;
     }
 
-    public void setLongitud(String longitud) {
+    public void setLongitud(Double longitud) {
         Longitud = longitud;
     }
 }
