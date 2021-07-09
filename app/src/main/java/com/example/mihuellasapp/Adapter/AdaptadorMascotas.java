@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -43,7 +44,7 @@ public class AdaptadorMascotas extends RecyclerView.Adapter<AdaptadorMascotas.Vi
         holder.Nombre.setText(mascota.getNombre());
         holder.estado.setText(mascota.getEstado());
         Picasso.get().load(mascota.getImageUrl()).placeholder(R.mipmap.ic_launcher).into(holder.imagenMascota);
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.editar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -175,13 +176,15 @@ public class AdaptadorMascotas extends RecyclerView.Adapter<AdaptadorMascotas.Vi
         public CircleImageView imagenMascota;
         public TextView Nombre;
         public TextView estado;
+        public ImageButton perdida,editar;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imagenMascota = itemView.findViewById(R.id.image_profile);
             Nombre = itemView.findViewById(R.id.nombre_mascota);
             estado = itemView.findViewById(R.id.raza_mascota);
-
+            perdida = itemView.findViewById(R.id.ib_perdida);
+            editar = itemView.findViewById(R.id.ib_editar);
 
         }
     }

@@ -32,7 +32,7 @@
                     android:textSize="30sp" />
 
                 <ImageButton
-                    android:id="@+id/imageButton"
+                    android:id="@+id/ib_eliminar"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="100dp"
@@ -40,7 +40,7 @@
                     android:layout_marginTop="5dp"
                     android:background="@android:color/transparent"
                     android:scaleType="centerInside"
-                    app:srcCompat="@mipmap/perdida" />
+                    app:srcCompat="@mipmap/trash" />
             </LinearLayout>
 
 
@@ -71,19 +71,6 @@
                         android:layout_marginLeft="40dp"
                         android:layout_marginTop="20dp"
                         app:srcCompat="@mipmap/doggy" />
-
-                    <ImageButton
-                        android:id="@+id/btn_borrar"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="150dp"
-                        android:layout_marginLeft="150dp"
-                        android:layout_marginTop="55dp"
-                        android:background="#00FFFFFF"
-                        android:scaleType="centerInside"
-                        app:layout_constraintStart_toEndOf="@+id/tv_nombre"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@mipmap/trash" />
 
                 </LinearLayout>
 

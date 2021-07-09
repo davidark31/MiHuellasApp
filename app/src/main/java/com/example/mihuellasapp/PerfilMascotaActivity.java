@@ -1,8 +1,10 @@
 package com.example.mihuellasapp;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.Uri;
@@ -19,19 +21,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mihuellasapp.Modelo.Mascota;
-import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.StorageTask;
 import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
@@ -50,6 +45,7 @@ public class PerfilMascotaActivity extends AppCompatActivity {
     private Uri imageUri;
     private String imageUrl;
     private FirebaseAuth auth;
+    private ImageButton eliminar;
 
 
     @Override
@@ -86,6 +82,7 @@ public class PerfilMascotaActivity extends AppCompatActivity {
         cachorro = findViewById(R.id.rdb_cachorro);
         adulto = findViewById(R.id.rdb_adulto);
         anciano = findViewById(R.id.rdb_anciano);
+        eliminar = findViewById(R.id.ib_eliminar);
 
 
         nombre.setText(m.getNombre());
@@ -132,24 +129,41 @@ public class PerfilMascotaActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
-    /*    FirebaseDatabase.getInstance().getReference().child("Mascotas").child(m.getId()).addValueEventListener(new ValueEventListener() {
+        eliminar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                m = dataSnapshot.getValue(Mascota.class);
+            public void onClick(View v) {
+
+                AlertDialog.Builder del = new AlertDialog.Builder(PerfilMascotaActivity.this);
+                del.setMessage("Estas seguro de eliminar la Mascota?");
+                del.setCancelable(false);
+                del.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        FirebaseDatabase.getInstance().getReference().child("Mascotas").child(m.getId()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                finish();
+                                Toast.makeText(getApplicationContext(), "Mascota Eliminada", Toast.LENGTH_SHORT).show();
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(getApplicationContext(), "Error al eliminar " + e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                            }
+                        });
+                    }
+                });
+
+                del.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int i) {
+                    }
+                });
+                del.show();
             }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        });*/
-
-        // nombre.setText(m.getNombre());
-        // Toast.makeText(PerfilMascotaActivity.this, "nombre" + m.getNombre(), Toast.LENGTH_SHORT).show();
-
+        });
     }
 
     private void actualizar() {
