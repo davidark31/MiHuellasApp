@@ -25,44 +25,6 @@ public class Inicio_busquedaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio_busqueda);
 
-        lv = (ListView)findViewById(R.id.lv_datos);
-
-        /*
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
-                tv1.setText("la edad de "+ lv.getItemIdAtPosition(i) + " es " + edad[i]+ "años");
-            }
-        });
-         */
-
-        //FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        //String userID = mAuth.getCurrentUser().getUid();
-
-        final ArrayList<String> list = new ArrayList<>();
-        final ArrayAdapter <String> adapter = new ArrayAdapter<String>(this, R.layout.lista_publicacion,list);
-        lv.setAdapter(adapter);
-
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Publicaciones");
-        //ref.child("Publicaciones").child(userID).addValueEventListener(new ValueEventListener() {
-        ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                list.clear();
-                for (DataSnapshot snapshot: dataSnapshot.getChildren()){
-                    Publicacion publi = snapshot.getValue(Publicacion.class);
-                    String txt = publi.getDescripcionPublicacion() + " : " + publi.getAnimalPublicacion();
-                    list.add(txt);
-                }
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                System.out.println("Fallo la lectura: " + databaseError.getCode());
-            }
-        });
-
     }
 
 

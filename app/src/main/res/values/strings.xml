@@ -15,8 +15,8 @@
     <string name="hint"> </string>
 
     <string name="lugar"></string>
-    <string name="Descripcion">Descripcion</string>
-    <string name="Animal">Animal</string>
+    <string name="DescripcionPublicacion">Descripcion</string>
+    <string name="AnimalPublicacion">Animal</string>
 
     <string-array name="animal">
         <item>Gato</item>
@@ -49,4 +49,5 @@
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

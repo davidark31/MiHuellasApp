@@ -267,6 +267,25 @@
                 </RadioGroup>
             </LinearLayout>
 
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_gps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ubicacion Actual" />
+
+
+            </LinearLayout>
+
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -281,7 +300,7 @@
                     android:textSize="20sp" />
 
                 <EditText
-                    android:id="@+id/txt_descripcion_animal"
+                    android:id="@+id/txt_descripcion_publicacion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"

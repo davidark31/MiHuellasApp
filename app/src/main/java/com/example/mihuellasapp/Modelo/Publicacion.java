@@ -3,119 +3,139 @@ package com.example.mihuellasapp.Modelo;
 public class Publicacion {
 
     private String Id;
-    private String AnimalPublicacion;
-    private String TamañoPublicacion;
-    private String RazaPublicacion;
-    private String ColorPublicacion;
-    private String Color2Publicacion;
-    private String SexoPublicacion;
-    private String DescripcionPublicacion;
-    private String EdadPublicacion;
-    private String IdDueño;
+    private String Animal;
+    private String Tamano;
+    private String Raza;
+    private String Color;
+    private String Color2;
+    private String Sexo;
+    private String Descripcion;
+    private String Edad;
+    private String IdDueno;
     private String ImageUrl;
+    private String Latitud;
+    private String Longitud;
 
     public Publicacion() {
     }
 
-    public Publicacion(String id, String animalPublicacion, String tamañoPublicacion, String razaPublicacion, String colorPublicacion, String color2Publicacion, String sexoPublicacion, String descripcionPublicacion, String edadPublicacion, String idDueño, String imageUrl) {
+    public Publicacion(String id, String animal, String tamano, String raza, String color, String color2, String sexo, String descripcion, String edad, String idDueno, String imageUrl, String latitud, String longitud) {
         Id = id;
-        AnimalPublicacion = animalPublicacion;
-        TamañoPublicacion = tamañoPublicacion;
-        RazaPublicacion = razaPublicacion;
-        ColorPublicacion = colorPublicacion;
-        Color2Publicacion = color2Publicacion;
-        SexoPublicacion = sexoPublicacion;
-        DescripcionPublicacion = descripcionPublicacion;
-        EdadPublicacion = edadPublicacion;
-        IdDueño = idDueño;
+        Animal = animal;
+        Tamano = tamano;
+        Raza = raza;
+        Color = color;
+        Color2 = color2;
+        Sexo = sexo;
+        Descripcion = descripcion;
+        Edad = edad;
+        IdDueno = idDueno;
         ImageUrl = imageUrl;
+        Latitud = latitud;
+        Longitud = longitud;
     }
 
-    public String getIdPublicacion() {
+    public String getId() {
         return Id;
     }
 
-    public void setIdPublicacion(String id) {
+    public void setId(String id) {
         Id = id;
     }
 
-    public String getAnimalPublicacion() {
-        return AnimalPublicacion;
+    public String getAnimal() {
+        return Animal;
     }
 
-    public void setAnimalPublicacion(String animalPublicacion) {
-        AnimalPublicacion = animalPublicacion;
+    public void setAnimal(String animal) {
+        Animal = animal;
     }
 
-    public String getTamañoPublicacion() {
-        return TamañoPublicacion;
+    public String getTamano() {
+        return Tamano;
     }
 
-    public void setTamañoPublicacion(String tamañoPublicacion) {
-        TamañoPublicacion = tamañoPublicacion;
+    public void setTamano(String tamano) {
+        Tamano = tamano;
     }
 
-    public String getRazaPublicacion() {
-        return RazaPublicacion;
+    public String getRaza() {
+        return Raza;
     }
 
-    public void setRazaPublicacion(String razaPublicacion) {
-        RazaPublicacion = razaPublicacion;
+    public void setRaza(String raza) {
+        Raza = raza;
     }
 
-    public String getColorPublicacion() {
-        return ColorPublicacion;
+    public String getColor() {
+        return Color;
     }
 
-    public void setColorPublicacion(String colorPublicacion) {
-        ColorPublicacion = colorPublicacion;
+    public void setColor(String color) {
+        Color = color;
     }
 
-    public String getColor2Publicacion() {
-        return Color2Publicacion;
+    public String getColor2() {
+        return Color2;
     }
 
-    public void setColor2Publicacion(String color2Publicacion) {
-        Color2Publicacion = color2Publicacion;
+    public void setColor2(String color2) {
+        Color2 = color2;
     }
 
-    public String getSexoPublicacion() {
-        return SexoPublicacion;
+    public String getSexo() {
+        return Sexo;
     }
 
-    public void setSexoPublicacion(String sexoPublicacion) {
-        SexoPublicacion = sexoPublicacion;
+    public void setSexo(String sexo) {
+        Sexo = sexo;
     }
 
-    public String getDescripcionPublicacion() {
-        return DescripcionPublicacion;
+    public String getDescripcion() {
+        return Descripcion;
     }
 
-    public void setDescripcionPublicacion(String descripcionPublicacion) {
-        DescripcionPublicacion = descripcionPublicacion;
+    public void setDescripcion(String descripcion) {
+        Descripcion = descripcion;
     }
 
-    public String getEdadPublicacion() {
-        return EdadPublicacion;
+    public String getEdad() {
+        return Edad;
     }
 
-    public void setEdadPublicacion(String edadPublicacion) {
-        EdadPublicacion = edadPublicacion;
+    public void setEdad(String edad) {
+        Edad = edad;
     }
 
-    public String getIdDueñoPublicacion() {
-        return IdDueño;
+    public String getIdDueno() {
+        return IdDueno;
     }
 
-    public void setIdDueñoPublicacion(String idDueño) {
-        IdDueño = idDueño;
+    public void setIdDueno(String idDueno) {
+        IdDueno = idDueno;
     }
 
-    public String getImageUrlPublicacion() {
+    public String getImageUrl() {
         return ImageUrl;
     }
 
-    public void setImageUrlPublicacion(String imageUrl) {
+    public void setImageUrl(String imageUrl) {
         ImageUrl = imageUrl;
+    }
+
+    public String getLatitud() {
+        return Latitud;
+    }
+
+    public void setLatitud(String latitud) {
+        Latitud = latitud;
+    }
+
+    public String getLongitud() {
+        return Longitud;
+    }
+
+    public void setLongitud(String longitud) {
+        Longitud = longitud;
     }
 }

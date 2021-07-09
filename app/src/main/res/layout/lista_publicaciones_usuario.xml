@@ -27,7 +27,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:maxLines="1"
-            android:text="@string/Descripcion"
+            android:text="@string/DescripcionPublicacion"
             android:textColor="@color/design_default_color_primary_dark"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -39,7 +39,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:maxLines="1"
-            android:text="@string/Animal"
+            android:text="@string/AnimalPublicacion"
             android:textSize="20sp" />
 
     </LinearLayout>

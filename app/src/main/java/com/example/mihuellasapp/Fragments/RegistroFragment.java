@@ -46,7 +46,7 @@ public class RegistroFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         lMisPublicaciones = new ArrayList<>();
-        buscarMisPublicaciones();
+        //buscarMisPublicaciones();
 
         View view = inflater.inflate(R.layout.fragment_registro, container, false);
         recyclerView = view.findViewById(R.id.recycler_view_mis_publi);
@@ -62,7 +62,6 @@ public class RegistroFragment extends Fragment {
         recyclerView.setAdapter(misPublicacionesAdapter);
 
         btnpublicar = (Button) view.findViewById(R.id.btn_publicar);
-        
         btnpublicar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,14 +77,15 @@ public class RegistroFragment extends Fragment {
 
 
     public void buscarMisPublicaciones() {
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("PublicacionesAnimalesEncontrados");
+        //prueba carga
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("PAniEncontrados");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                for (DataSnapshot snap : snapshot.getChildren()) {
-                    Publicacion p = snap.getValue(Publicacion.class);
-                    if (p.getIdDueñoPublicacion().equals(FirebaseAuth.getInstance().getCurrentUser().getUid()))
-                        lMisPublicaciones.add(p);
+                for (DataSnapshot snap1 : snapshot.getChildren()) {
+                    Publicacion u = snap1.getValue(Publicacion.class);
+                    if (u.getIdDueno().equals(FirebaseAuth.getInstance().getCurrentUser().getUid()))
+                        lMisPublicaciones.add(u);
 
                 }
                 misPublicacionesAdapter.notifyDataSetChanged();
@@ -98,5 +98,15 @@ public class RegistroFragment extends Fragment {
         });
     }
 
+    public static void esperar(int segundos) {
+        try {
+            Thread.sleep(segundos * 1000);
+        } catch (Exception e) {
+
+        }
+    }
+
+
 }
+
 

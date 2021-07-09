@@ -29,25 +29,24 @@ public class AdaptadorMisPublicaciones extends RecyclerView.Adapter<AdaptadorMis
         this.lMisPublicaciones = lMisPublicaciones;
     }
 
-
     @NonNull
-        @Override
-        public AdaptadorMisPublicaciones.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_publicaciones_usuario, parent, false);
-            return new AdaptadorMisPublicaciones.ViewHolder(view);
-        }
+    @Override
+    public AdaptadorMisPublicaciones.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_publicaciones_usuario, parent, false);
+        return new ViewHolder(view);
+    }
 
     @Override
     public void onBindViewHolder(@NonNull AdaptadorMisPublicaciones.ViewHolder holder, int position) {
 
         Publicacion publicacion = lMisPublicaciones.get(position);
-        holder.DescripcionPublicacion.setText(publicacion.getDescripcionPublicacion());
-        holder.AnimalPublicacion.setText(publicacion.getAnimalPublicacion());
-        Picasso.get().load(publicacion.getImageUrlPublicacion()).placeholder(R.mipmap.ic_launcher).into(holder.imagenMiPublicacion);
-        holder.imagenMiPublicacion.setOnClickListener(new View.OnClickListener() {
+        holder.Descripcion.setText(publicacion.getDescripcion());
+        holder.Animal.setText(publicacion.getAnimal());
+        Picasso.get().load(publicacion.getImageUrl()).placeholder(R.mipmap.ic_launcher).into(holder.ImageUrl);
+        holder.ImageUrl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                 /*
                 Intent intent = new Intent(v.getContext(), EditarPublicacionActivity.class);
                 v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Id", publicacion.getIdPublicacion()).apply();
                 v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Sexo", publicacion.getSexoPublicacion()).apply();
@@ -61,8 +60,12 @@ public class AdaptadorMisPublicaciones extends RecyclerView.Adapter<AdaptadorMis
                 v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("IdDueño", publicacion.getIdDueñoPublicacion()).apply();
                 v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("ImageUrl", publicacion.getImageUrlPublicacion()).apply();
                 v.getContext().startActivity(intent);
+
+                  */
             }
         });
+
+
     }
 
 
@@ -73,16 +76,15 @@ public class AdaptadorMisPublicaciones extends RecyclerView.Adapter<AdaptadorMis
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public CircleImageView imagenMiPublicacion;
-        public TextView DescripcionPublicacion;
-        public TextView AnimalPublicacion;
+        public CircleImageView ImageUrl;
+        public TextView Descripcion;
+        public TextView Animal;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imagenMiPublicacion = itemView.findViewById(R.id.imagen_publicacion_usuario);
-            DescripcionPublicacion = itemView.findViewById(R.id.descripcion_publicacion_usuario);
-            AnimalPublicacion = itemView.findViewById(R.id.animal_publicacion_usuario);
-
+            ImageUrl = itemView.findViewById(R.id.imagen_publicacion_usuario);
+            Descripcion = itemView.findViewById(R.id.descripcion_publicacion_usuario);
+            Animal = itemView.findViewById(R.id.animal_publicacion_usuario);
 
         }
     }
