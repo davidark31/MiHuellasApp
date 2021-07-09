@@ -97,11 +97,11 @@ public class PerfilFragment extends Fragment {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
+                lMascotas.clear();
                 for (DataSnapshot snap : snapshot.getChildren()) {
                     Mascota u = snap.getValue(Mascota.class);
                     if (u.getIdDueño().equals(FirebaseAuth.getInstance().getCurrentUser().getUid()))
                         lMascotas.add(u);
-
                 }
                 mascotasAdapter.notifyDataSetChanged();
             }
@@ -113,11 +113,4 @@ public class PerfilFragment extends Fragment {
         });
     }
 
-    public static void esperar(int segundos) {
-        try {
-            Thread.sleep(segundos * 1000);
-        } catch (Exception e) {
-
-        }
-    }
 }

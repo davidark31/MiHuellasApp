@@ -17,30 +17,32 @@
             android:layout_height="64dp"
             android:background="#F6E870">
 
-            <TextView
-                android:id="@+id/tv_nombre"
-                android:layout_width="161dp"
-                android:layout_height="54dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginLeft="28dp"
-                android:textColor="#000000"
-                android:textSize="30sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/btn_borrar"
-                android:layout_width="57dp"
-                android:layout_height="54dp"
-                android:layout_marginStart="120dp"
-                android:layout_marginLeft="120dp"
-                android:layout_marginTop="5dp"
-                android:background="#00FFFFFF"
-                android:scaleType="centerInside"
-                app:layout_constraintStart_toEndOf="@+id/tv_nombre"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@mipmap/trash" />
+                <TextView
+                    android:id="@+id/tv_nombre"
+                    android:layout_width="161dp"
+                    android:layout_height="54dp"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginLeft="28dp"
+                    android:textColor="#000000"
+                    android:textSize="30sp" />
+
+                <ImageButton
+                    android:id="@+id/imageButton"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@mipmap/perdida" />
+            </LinearLayout>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -70,17 +72,19 @@
                         android:layout_marginTop="20dp"
                         app:srcCompat="@mipmap/doggy" />
 
+                    <ImageButton
+                        android:id="@+id/btn_borrar"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="150dp"
+                        android:layout_marginLeft="150dp"
+                        android:layout_marginTop="55dp"
+                        android:background="#00FFFFFF"
+                        android:scaleType="centerInside"
+                        app:layout_constraintStart_toEndOf="@+id/tv_nombre"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@mipmap/trash" />
 
-                    <TextView
-                        android:id="@+id/txt_descripcion_perfilMascota"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="25dp"
-                        android:layout_marginLeft="25dp"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginEnd="15dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_weight="1" />
                 </LinearLayout>
 
                 <Space
@@ -260,7 +264,7 @@
                                 android:layout_marginStart="5dp"
                                 android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
-                                android:text="Color \n Secundario"
+                                android:text="Segundo\nColor"
                                 android:textSize="20sp" />
 
                             <Space

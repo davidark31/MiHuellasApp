@@ -43,7 +43,7 @@ public class AdaptadorMascotas extends RecyclerView.Adapter<AdaptadorMascotas.Vi
         holder.Nombre.setText(mascota.getNombre());
         holder.estado.setText(mascota.getEstado());
         Picasso.get().load(mascota.getImageUrl()).placeholder(R.mipmap.ic_launcher).into(holder.imagenMascota);
-        holder.imagenMascota.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

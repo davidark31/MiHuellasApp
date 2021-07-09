@@ -3,10 +3,12 @@ package com.example.mihuellasapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -17,13 +19,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mihuellasapp.Modelo.Mascota;
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.StorageTask;
 import com.squareup.picasso.Picasso;
+
+import java.util.HashMap;
 
 public class PerfilMascotaActivity extends AppCompatActivity {
 
@@ -34,7 +45,11 @@ public class PerfilMascotaActivity extends AppCompatActivity {
     private EditText descripcion, nombre;
     private TextView estado;
     private ImageView foto;
-    private Button cancelar, registrar;
+    private Button cancelar, editar;
+    private String edad;
+    private Uri imageUri;
+    private String imageUrl;
+    private FirebaseAuth auth;
 
 
     @Override
@@ -67,7 +82,7 @@ public class PerfilMascotaActivity extends AppCompatActivity {
         descripcion = findViewById(R.id.txt_descripcion);
         nombre = findViewById(R.id.txt_nombre_mascota);
         cancelar = findViewById(R.id.btn_cancelar);
-        registrar = findViewById(R.id.btn_editar_mascota);
+        editar = findViewById(R.id.btn_editar_mascota);
         cachorro = findViewById(R.id.rdb_cachorro);
         adulto = findViewById(R.id.rdb_adulto);
         anciano = findViewById(R.id.rdb_anciano);
@@ -85,13 +100,19 @@ public class PerfilMascotaActivity extends AppCompatActivity {
         Picasso.get().load(m.getImageUrl()).placeholder(R.mipmap.doggy).into(foto);
 
 
-        if (tamaño.equals("Cachorro")) {
+        if (m.getEdad().equals("Cachorro")) {
             cachorro.setChecked(true);
+            adulto.setChecked(false);
+            anciano.setChecked(false);
         } else {
-            if (tamaño.equals("adulto")) {
+            if (m.getEdad().equals("adulto")) {
+                cachorro.setChecked(false);
                 adulto.setChecked(true);
+                anciano.setChecked(false);
             } else {
-                if (tamaño.equals("anciano")) {
+                if (m.getEdad().equals("anciano")) {
+                    cachorro.setChecked(false);
+                    adulto.setChecked(false);
                     anciano.setChecked(true);
                 }
             }
@@ -101,6 +122,13 @@ public class PerfilMascotaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+        editar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                actualizar();
             }
         });
 
@@ -124,6 +152,92 @@ public class PerfilMascotaActivity extends AppCompatActivity {
 
     }
 
+    private void actualizar() {
+
+        final ProgressDialog pd = new ProgressDialog(this);
+        pd.setMessage("Editando");
+        pd.show();
+
+        //Obtenemos las variables como String
+        String nombreString = nombre.getText().toString();
+        String animalString = animal.getSelectedItem().toString();
+        String sexoString = sexo.getSelectedItem().toString();
+        String razaString = raza.getSelectedItem().toString();
+        String colorString = color.getSelectedItem().toString();
+        String color2String = color2.getSelectedItem().toString();
+        String tamañoString = tamaño.getSelectedItem().toString();
+        String descipcionString = descripcion.getText().toString();
+        edad = "";
+
+        //comprobamos la edad de la mascota
+        if (cachorro.isChecked()) {
+            edad = "Cachorro";
+        } else {
+            if (adulto.isChecked()) {
+                edad = "adulto";
+            } else {
+                if (anciano.isChecked()) {
+                    edad = "anciano";
+                }
+            }
+        }
+        if (nombreString.isEmpty() || edad.equals("")) {
+            Toast.makeText(getApplicationContext(), "Faltan Datos", Toast.LENGTH_SHORT).show();
+        } else {
+            DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Mascotas");
+
+            HashMap<String, Object> map = new HashMap<>();
+            map.put("Id", m.getId());
+            map.put("Nombre", nombreString);
+            map.put("Animal", animalString);
+            map.put("Sexo", sexoString);
+            map.put("Raza", razaString);
+            map.put("Color", colorString);
+            map.put("Color2", color2String);
+            map.put("Tamaño", tamañoString);
+            map.put("Descripcion", descipcionString);
+            map.put("Edad", edad);
+            map.put("IdDueño", m.getIdDueño());
+            map.put("ImageUrl", m.getImageUrl());
+            map.put("Estado", m.getEstado());
+
+            ref.child(m.getId()).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        pd.dismiss();
+                        finish();
+                        Toast.makeText(getApplicationContext(), "Mascota Editada", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    pd.dismiss();
+                    finish();
+                    Toast.makeText(getApplicationContext(), "Error :" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+     /*       ref.child(m.getId()).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        finish();
+                        Toast.makeText(PerfilMascotaActivity.this, "Mascota Editada", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    finish();
+                    Toast.makeText(getApplicationContext(), "Error :" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });*/
+
+        }
+
+    }
+
 
     private int selectValue(Spinner spinner, Object value) {
         int posicion = 0;
@@ -134,5 +248,9 @@ public class PerfilMascotaActivity extends AppCompatActivity {
             }
         }
         return posicion;
+    }
+
+    private String obtenerExtensionArchivo(Uri uri) {
+        return MimeTypeMap.getSingleton().getExtensionFromMimeType(getContentResolver().getType(uri));
     }
 }

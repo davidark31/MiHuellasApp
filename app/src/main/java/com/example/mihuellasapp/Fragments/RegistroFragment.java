@@ -89,7 +89,7 @@ public class RegistroFragment extends Fragment {
             public void onDataChange(DataSnapshot snapshot) {
                 for (DataSnapshot snap1 : snapshot.getChildren()) {
                     Publicacion u = snap1.getValue(Publicacion.class);
-                    if (u.getIdDueno().equals(FirebaseAuth.getInstance().getCurrentUser().getUid()))
+                   // if (u.getIdDueno().equals(FirebaseAuth.getInstance().getCurrentUser().getUid()))
                         lMisPublicaciones.add(u);
 
                 }
