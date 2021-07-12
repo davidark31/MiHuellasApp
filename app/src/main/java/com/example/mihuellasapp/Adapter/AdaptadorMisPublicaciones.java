@@ -46,22 +46,22 @@ public class AdaptadorMisPublicaciones extends RecyclerView.Adapter<AdaptadorMis
         holder.ImageUrl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                 /*
+
                 Intent intent = new Intent(v.getContext(), EditarPublicacionActivity.class);
-                v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Id", publicacion.getIdPublicacion()).apply();
-                v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Sexo", publicacion.getSexoPublicacion()).apply();
-                v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Animal", publicacion.getAnimalPublicacion()).apply();
-                v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Color", publicacion.getColorPublicacion()).apply();
-                v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Color2", publicacion.getColor2Publicacion()).apply();
-                v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Raza", publicacion.getRazaPublicacion()).apply();
-                v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Edad", publicacion.getEdadPublicacion()).apply();
-                v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Descripcion", publicacion.getDescripcionPublicacion()).apply();
-                v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Tamaño", publicacion.getTamañoPublicacion()).apply();
-                v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("IdDueño", publicacion.getIdDueñoPublicacion()).apply();
-                v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("ImageUrl", publicacion.getImageUrlPublicacion()).apply();
+                v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Id", publicacion.getId()).apply();
+                v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Sexo", publicacion.getSexo()).apply();
+                v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Animal", publicacion.getAnimal()).apply();
+                v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Color", publicacion.getColor()).apply();
+                v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Color2", publicacion.getColor2()).apply();
+                v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Raza", publicacion.getRaza()).apply();
+                v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Edad", publicacion.getEdad()).apply();
+                v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Descripcion", publicacion.getDescripcion()).apply();
+                v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Tamaño", publicacion.getTamano()).apply();
+                v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("IdDueño", publicacion.getIdDueno()).apply();
+                v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("ImageUrl", publicacion.getImageUrl()).apply();
                 v.getContext().startActivity(intent);
 
-                  */
+
             }
         });
 
