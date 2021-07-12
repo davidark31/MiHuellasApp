@@ -28,22 +28,61 @@
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="25dp" />
+                android:layout_height="15dp" />
 
-            <EditText
-                android:id="@+id/editTextDate"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Ultimo día visto "
-                android:inputType="date" />
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/iv_perfil_mascota"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@mipmap/lost" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/txt_nombre_mascota_perdida"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:textSize="20sp" />
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
 
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="25dp" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/btn_fecha_perdido"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Último Día Visto" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="25dp" />
+
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/mapView"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+
+            <Button
+                android:id="@+id/btn_ubicacion_mascota_perdida"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
@@ -82,6 +121,10 @@
                 android:ems="10"
                 android:hint="Recompensa (Opcional)"
                 android:inputType="number" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
