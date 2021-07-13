@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+
+    <LinearLayout
+        android:layout_width="402dp"
+        android:layout_height="105dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_publi"
+            android:layout_width="73dp"
+            android:layout_height="63dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            app:srcCompat="@mipmap/perdida" />
+
+        <LinearLayout
+            android:layout_width="184dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_raza_publi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="TextView"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/txt_fecha_publi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="TextView"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/txt_descripcion_publi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="TextView" />
+        </LinearLayout>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_publi"
+            android:layout_width="112dp"
+            android:layout_height="match_parent"
+            android:src="@mipmap/ic_launcher" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

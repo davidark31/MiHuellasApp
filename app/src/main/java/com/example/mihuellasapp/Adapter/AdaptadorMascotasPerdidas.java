@@ -10,7 +10,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mihuellasapp.Modelo.Mascota;
 import com.example.mihuellasapp.Modelo.MascotaPerdida;
 import com.example.mihuellasapp.R;
 import com.squareup.picasso.Picasso;
@@ -59,7 +58,7 @@ public class AdaptadorMascotasPerdidas extends RecyclerView.Adapter<AdaptadorMas
         public ImageView ver;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imagenMascota = itemView.findViewById(R.id.image_profile);
+            imagenMascota = itemView.findViewById(R.id.img_publi);
             Raza = itemView.findViewById(R.id.txt_raza_mascota_perdida);
             Edad = itemView.findViewById(R.id.txt_edad_mascota_perdida);
             Color = itemView.findViewById(R.id.txt_color_mascota_perdida);

@@ -141,7 +141,7 @@ public class AdaptadorMascotas extends RecyclerView.Adapter<AdaptadorMascotas.Vi
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imagenMascota = itemView.findViewById(R.id.image_profile);
+            imagenMascota = itemView.findViewById(R.id.img_publi);
             Nombre = itemView.findViewById(R.id.txt_raza_mascota_perdida);
             estado = itemView.findViewById(R.id.txt_edad_mascota_perdida);
             perdida = itemView.findViewById(R.id.ib_perdida);

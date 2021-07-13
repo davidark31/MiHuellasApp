@@ -49,9 +49,11 @@
         </androidx.recyclerview.widget.RecyclerView>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_publicaciones_usuarios"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="5dp" />
+            android:layout_margin="5dp"
+            tools:listitem="@layout/lista_publicaciones_usuario" />
     </LinearLayout>
 
 

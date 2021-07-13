@@ -20,30 +20,32 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class AdaptadorMisPublicaciones extends RecyclerView.Adapter<AdaptadorMisPublicaciones.ViewHolder> {
+public class AdaptadorPublicaciones extends RecyclerView.Adapter<AdaptadorPublicaciones.ViewHolder> {
 
     private Context mContext;
-    private List<Publicacion> lMisPublicaciones;
+    private List<Publicacion> lPublicaciones;
 
-    public AdaptadorMisPublicaciones(Context mContext, List<Publicacion> lMisPublicaciones) {
+    public AdaptadorPublicaciones(Context mContext, List<Publicacion> lPublicaciones) {
         this.mContext = mContext;
-        this.lMisPublicaciones = lMisPublicaciones;
+        this.lPublicaciones = lPublicaciones;
     }
 
     @NonNull
     @Override
-    public AdaptadorMisPublicaciones.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_publicaciones_usuario, parent, false);
+    public AdaptadorPublicaciones.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_publicaciones_comunidad, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AdaptadorMisPublicaciones.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AdaptadorPublicaciones.ViewHolder holder, int position) {
 
-        Publicacion publicacion = lMisPublicaciones.get(position);
-        holder.Descripcion.setText(publicacion.getDescripcion());
+        Publicacion publicacion = lPublicaciones.get(position);
+        holder.Descripcion.setText(publicacion.getRaza());
         holder.Animal.setText(publicacion.getAnimal());
+        holder.editar.setText(publicacion.getDescripcion());
         Picasso.get().load(publicacion.getImageUrl()).placeholder(R.mipmap.ic_launcher).into(holder.ImageUrl);
+        /*
         holder.editar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,31 +67,32 @@ public class AdaptadorMisPublicaciones extends RecyclerView.Adapter<AdaptadorMis
                 v.getContext().startActivity(intent);
 
 
+
             }
         });
+ */
 
 
     }
 
 
-
     @Override
     public int getItemCount() {
-        return lMisPublicaciones.size();
+        return lPublicaciones.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public CircleImageView ImageUrl;
         public TextView Descripcion;
         public TextView Animal;
-        public ImageButton editar;
+        public TextView editar;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            ImageUrl = itemView.findViewById(R.id.imagen_publicacion_usuario);
-            Animal = itemView.findViewById(R.id.descripcion_publicacion_usuario);
-            Descripcion = itemView.findViewById(R.id.animal_publicacion_usuario);
-            editar = itemView.findViewById(R.id.ib_editar_publicacion);
+            ImageUrl = itemView.findViewById(R.id.img_publi);
+            Animal = itemView.findViewById(R.id.txt_raza_publi);
+            Descripcion = itemView.findViewById(R.id.txt_fecha_publi);
+            editar = itemView.findViewById(R.id.txt_descripcion_publi);
 
         }
     }
