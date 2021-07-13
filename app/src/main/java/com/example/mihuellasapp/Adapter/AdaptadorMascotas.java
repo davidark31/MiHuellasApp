@@ -9,9 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,10 +18,6 @@ import com.example.mihuellasapp.MascotaPerdidaActivity;
 import com.example.mihuellasapp.Modelo.Mascota;
 import com.example.mihuellasapp.PerfilMascotaActivity;
 import com.example.mihuellasapp.R;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -57,14 +51,17 @@ public class AdaptadorMascotas extends RecyclerView.Adapter<AdaptadorMascotas.Vi
             holder.estado.setTextColor(Color.parseColor("#3CAD4C"));
 
         } else {
-            if (mascota.getEstado().equals("Perdida")) {
+            if (mascota.getEstado().equals("Perdido")) {
                 holder.estado.setText(mascota.getEstado());
                 holder.estado.setTextColor(Color.parseColor("#E83030"));
-            }else{
+            } else {
                 holder.estado.setText(mascota.getEstado());
                 holder.estado.setTextColor(Color.parseColor("#F4FE27"));
             }
 
+        }
+        if (mascota.getEstado().equals("Perdido")) {
+            holder.perdida.setVisibility(View.INVISIBLE);
         }
         holder.estado.setText(mascota.getEstado());
         Picasso.get().load(mascota.getImageUrl()).placeholder(R.mipmap.ic_launcher).into(holder.imagenMascota);
@@ -145,8 +142,8 @@ public class AdaptadorMascotas extends RecyclerView.Adapter<AdaptadorMascotas.Vi
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imagenMascota = itemView.findViewById(R.id.image_profile);
-            Nombre = itemView.findViewById(R.id.nombre_mascota);
-            estado = itemView.findViewById(R.id.raza_mascota);
+            Nombre = itemView.findViewById(R.id.txt_raza_mascota_perdida);
+            estado = itemView.findViewById(R.id.txt_edad_mascota_perdida);
             perdida = itemView.findViewById(R.id.ib_perdida);
             editar = itemView.findViewById(R.id.ib_editar);
 
