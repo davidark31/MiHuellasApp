@@ -36,6 +36,7 @@ public class EditarPublicacionActivity extends AppCompatActivity {
 
     private Publicacion p;
     private Spinner animal, sexo, raza, color, color2, tamano;
+    private Double latidud, longitud;
     private RadioButton cachorro, adulto, anciano;
     private EditText descripcion;
     private ImageView foto;
@@ -63,6 +64,12 @@ public class EditarPublicacionActivity extends AppCompatActivity {
         p.setImageUrl(EditarPublicacionActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("ImageUrl", "none"));
         p.setIdDueno(EditarPublicacionActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("IdDueno", "none"));
         p.setSexo(EditarPublicacionActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("Sexo", "none"));
+
+        String latitudString = EditarPublicacionActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("Latitud", "none");
+        String longitudString = EditarPublicacionActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("Longitud","none");
+
+        p.setLatitud(Double.parseDouble(latitudString));
+        p.setLongitud(Double.parseDouble(longitudString));
 
         animal = findViewById(R.id.spn_animal);
         sexo = findViewById(R.id.spn_sexo_perfilMascota);

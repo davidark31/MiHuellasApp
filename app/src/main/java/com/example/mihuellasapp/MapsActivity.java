@@ -5,14 +5,12 @@ import androidx.fragment.app.FragmentActivity;
 
 import android.os.Bundle;
 
-import com.example.mihuellasapp.Modelo.MapsPruebaEliminar;
 import com.example.mihuellasapp.Modelo.Publicacion;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.mihuellasapp.databinding.ActivityMapsBinding;
 import com.google.firebase.database.DataSnapshot;
@@ -20,8 +18,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -59,7 +55,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        mDatabase.child("Cordenadas").addValueEventListener(new ValueEventListener() {
+        mDatabase.child("PAniEncontrados").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
@@ -68,11 +64,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(temuco, 14));
 
                 for(DataSnapshot snapshot1: dataSnapshot.getChildren()){
-                    MapsPruebaEliminar p = snapshot1.getValue(MapsPruebaEliminar.class);
-                    Double latitud = p.getLatitud();
-                    Double longitud = p.getLongitud();
+                    Publicacion p = snapshot1.getValue(Publicacion.class);
+                   // Float latitud = p.getLatitud();
+                   // Float longitud = p.getLongitud();
                     MarkerOptions markerOptions = new MarkerOptions();
-                    markerOptions.position(new LatLng(latitud,longitud));
+                   // markerOptions.position(new LatLng(latitud,longitud));
                 }
             }
 

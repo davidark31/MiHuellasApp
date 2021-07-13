@@ -82,8 +82,6 @@ public class MascotaPerdidaActivity extends AppCompatActivity implements OnMapRe
         if (permitido = true) {
             mapa.getMapAsync(this);
             mapa.onCreate(savedInstanceState);
-
-
         }
 
 
@@ -105,14 +103,6 @@ public class MascotaPerdidaActivity extends AppCompatActivity implements OnMapRe
             }
         });
 
-
-        ubicacion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MascotaPerdidaActivity.this, ubicacionMascotaPerdidaActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     private void verificarPermiso() {
