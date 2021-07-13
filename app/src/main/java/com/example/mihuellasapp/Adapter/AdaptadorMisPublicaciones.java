@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -43,7 +44,7 @@ public class AdaptadorMisPublicaciones extends RecyclerView.Adapter<AdaptadorMis
         holder.Descripcion.setText(publicacion.getDescripcion());
         holder.Animal.setText(publicacion.getAnimal());
         Picasso.get().load(publicacion.getImageUrl()).placeholder(R.mipmap.ic_launcher).into(holder.ImageUrl);
-        holder.ImageUrl.setOnClickListener(new View.OnClickListener() {
+        holder.editar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -81,12 +82,14 @@ public class AdaptadorMisPublicaciones extends RecyclerView.Adapter<AdaptadorMis
         public CircleImageView ImageUrl;
         public TextView Descripcion;
         public TextView Animal;
+        public ImageButton editar;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ImageUrl = itemView.findViewById(R.id.imagen_publicacion_usuario);
             Descripcion = itemView.findViewById(R.id.descripcion_publicacion_usuario);
             Animal = itemView.findViewById(R.id.animal_publicacion_usuario);
+            editar = itemView.findViewById(R.id.ib_editar_publicacion);
 
         }
     }

@@ -51,6 +51,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+
+    /*
   @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -77,21 +79,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
     }
+*/
 
-  /*
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng temuco = new LatLng(-38.7362611, -72.590546);
+        LatLng temuco = new LatLng(-38.7382578, -72.6262371);
         mMap.addMarker(new MarkerOptions().position(temuco).title("Plaza Teodoro Schmidt"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(temuco, 14));
 
         //mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
     }
-*/
-
 
 
 

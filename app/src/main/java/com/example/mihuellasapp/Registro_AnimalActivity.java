@@ -44,7 +44,7 @@ import java.util.HashMap;
 public class Registro_AnimalActivity extends AppCompatActivity {
 
     public static final int REQUEST_CODE = 1;
-    //FusedLocationProviderClient fusedLocationProviderClient;
+    FusedLocationProviderClient fusedLocationProviderClient;
 
     private Spinner spAnimal, spTamaño, spRaza, spColor, spColor2, spSexo;
     private EditText txtDescripcion;
@@ -158,8 +158,8 @@ public class Registro_AnimalActivity extends AppCompatActivity {
                     LocationServices.getFusedLocationProviderClient(Registro_AnimalActivity.this).removeLocationUpdates(this);
                     if (locationResult != null && locationResult.getLocations().size() > 0) {
                         int latestLocationIndex = locationResult.getLocations().size() - 1;
-                        longitud = locationResult.getLocations().get(latestLocationIndex).getLatitude();
-                        latitud = locationResult.getLocations().get(latestLocationIndex).getLongitude();
+                        latitud = locationResult.getLocations().get(latestLocationIndex).getLatitude();
+                        longitud = locationResult.getLocations().get(latestLocationIndex).getLongitude();
                     }
                 }
 

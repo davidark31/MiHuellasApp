@@ -4,11 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.provider.Settings;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -22,17 +26,30 @@ import android.widget.Toast;
 
 import com.example.mihuellasapp.Modelo.Mascota;
 import com.example.mihuellasapp.Modelo.Publicacion;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionDeniedResponse;
+import com.karumi.dexter.listener.PermissionGrantedResponse;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.single.PermissionListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 
-public class EditarPublicacionActivity extends AppCompatActivity {
+public class EditarPublicacionActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private Publicacion p;
     private Spinner animal, sexo, raza, color, color2, tamano;
@@ -47,11 +64,17 @@ public class EditarPublicacionActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private ImageButton eliminar;
 
+    private MapView mapa;
+    private boolean permitido;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_publicacion);
+
+        verificarPermiso();
+
         p = new Publicacion();
         p.setId(EditarPublicacionActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("Id", "none"));
         p.setRaza(EditarPublicacionActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("Raza", "none"));
@@ -96,6 +119,13 @@ public class EditarPublicacionActivity extends AppCompatActivity {
         Picasso.get().load(p.getImageUrl()).placeholder(R.mipmap.doggy).into(foto);
 
 
+        mapa = findViewById(R.id.mapViewPublicacion);
+        if (permitido = true) {
+            mapa.getMapAsync(this);
+            mapa.onCreate(savedInstanceState);
+        }
+
+
         if (p.getEdad().equals("Cachorro")) {
             cachorro.setChecked(true);
             adulto.setChecked(false);
@@ -113,6 +143,7 @@ public class EditarPublicacionActivity extends AppCompatActivity {
                 }
             }
         }
+
 
         cancelar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -247,5 +278,84 @@ public class EditarPublicacionActivity extends AppCompatActivity {
 
     private String obtenerExtensionArchivo(Uri uri) {
         return MimeTypeMap.getSingleton().getExtensionFromMimeType(getContentResolver().getType(uri));
+    }
+
+
+    private void verificarPermiso() {
+
+        Dexter.withContext(this).withPermission(Manifest.permission.ACCESS_FINE_LOCATION).withListener(new PermissionListener() {
+            @Override
+            public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
+                Toast.makeText(EditarPublicacionActivity.this, "permiso concedido", Toast.LENGTH_SHORT).show();
+                permitido = true;
+            }
+
+            @Override
+            public void onPermissionDenied(PermissionDeniedResponse permissionDeniedResponse) {
+                Intent intent = new Intent();
+                intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                Uri uri = Uri.fromParts("package", getPackageName(), "");
+                intent.setData(uri);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onPermissionRationaleShouldBeShown(PermissionRequest permissionRequest, PermissionToken permissionToken) {
+                permissionToken.continuePermissionRequest();
+            }
+        }).check();
+
+    }
+
+    @Override
+    public void onMapReady(@NonNull GoogleMap googleMap) {
+        //googleMap.addMarker(new MarkerOptions().position(new LatLng(-38.7362611,-72.590546)).title("Lugar");
+        //googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Override, 14));
+
+        LatLng temuco = new LatLng(p.getLatitud(), p.getLongitud());
+        googleMap.addMarker(new MarkerOptions().position(temuco).title("Plaza Teodoro Schmidt"));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(temuco, 14));
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mapa.onStart();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mapa.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mapa.onResume();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mapa.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mapa.onDestroy();
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState, @NonNull PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+        mapa.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        mapa.onLowMemory();
     }
 }

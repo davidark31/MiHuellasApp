@@ -333,6 +333,21 @@
 
                         </LinearLayout>
 
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp" />
+
+                        <com.google.android.gms.maps.MapView
+                            android:id="@+id/mapViewPublicacion"
+                            android:layout_width="match_parent"
+                            android:layout_height="300dp" />
+
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp" />
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
