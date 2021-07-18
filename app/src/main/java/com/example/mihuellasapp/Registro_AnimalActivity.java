@@ -39,6 +39,8 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.theartofdev.edmodo.cropper.CropImage;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 
 public class Registro_AnimalActivity extends AppCompatActivity {
@@ -185,6 +187,10 @@ public class Registro_AnimalActivity extends AppCompatActivity {
         String sexo = spSexo.getSelectedItem().toString();
         String descripcion = txtDescripcion.getText().toString();
 
+        Date date = new Date();
+        SimpleDateFormat fecha= new SimpleDateFormat("d/MM/yyyy");
+        String fechaPubli=fecha.format(date);
+
         edad = "";
 
         if (rbCacho.isChecked()) {
@@ -236,6 +242,7 @@ public class Registro_AnimalActivity extends AppCompatActivity {
                         map.put("ImageUrl", imageUrl);
                         map.put("Latitud", latitud);
                         map.put("Longitud", longitud);
+                        map.put("Fecha",fechaPubli);
 
 
                         ref.child(publicacionID).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {

@@ -64,6 +64,7 @@ public class EditarPublicacionActivity extends AppCompatActivity implements OnMa
     private FirebaseAuth auth;
     private ImageButton eliminar;
 
+
     private MapView mapa;
     private boolean permitido;
 
@@ -87,6 +88,7 @@ public class EditarPublicacionActivity extends AppCompatActivity implements OnMa
         p.setImageUrl(EditarPublicacionActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("ImageUrl", "none"));
         p.setIdDueno(EditarPublicacionActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("IdDueno", "none"));
         p.setSexo(EditarPublicacionActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("Sexo", "none"));
+        p.setFecha(EditarPublicacionActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("Fecha", "none"));
 
         String latitudString = EditarPublicacionActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("Latitud", "none");
         String longitudString = EditarPublicacionActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("Longitud","none");
@@ -108,6 +110,7 @@ public class EditarPublicacionActivity extends AppCompatActivity implements OnMa
         adulto = findViewById(R.id.rdb_adulto);
         anciano = findViewById(R.id.rdb_anciano);
         eliminar = findViewById(R.id.ib_eliminar);
+
 
         animal.setSelection(selectValue(animal, p.getAnimal()));
         sexo.setSelection(selectValue(sexo, p.getSexo()));

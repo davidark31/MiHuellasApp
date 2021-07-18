@@ -15,11 +15,12 @@ public class Publicacion {
     private String ImageUrl;
     private Double Latitud;
     private Double Longitud;
+    private String Fecha;
 
     public Publicacion() {
     }
 
-    public Publicacion(String id, String animal, String tamano, String raza, String color, String color2, String sexo, String descripcion, String edad, String idDueno, String imageUrl, Double latitud, Double longitud) {
+    public Publicacion(String id, String animal, String tamano, String raza, String color, String color2, String sexo, String descripcion, String edad, String idDueno, String imageUrl, Double latitud, Double longitud, String fecha) {
         Id = id;
         Animal = animal;
         Tamano = tamano;
@@ -33,6 +34,7 @@ public class Publicacion {
         ImageUrl = imageUrl;
         Latitud = latitud;
         Longitud = longitud;
+        Fecha = fecha;
     }
 
     public String getId() {
@@ -137,5 +139,13 @@ public class Publicacion {
 
     public void setLongitud(Double longitud) {
         Longitud = longitud;
+    }
+
+    public String getFecha() {
+        return Fecha;
+    }
+
+    public void setFecha(String fecha) {
+        Fecha = fecha;
     }
 }

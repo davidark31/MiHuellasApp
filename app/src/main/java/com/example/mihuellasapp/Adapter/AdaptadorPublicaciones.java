@@ -41,7 +41,7 @@ public class AdaptadorPublicaciones extends RecyclerView.Adapter<AdaptadorPublic
     public void onBindViewHolder(@NonNull AdaptadorPublicaciones.ViewHolder holder, int position) {
 
         Publicacion publicacion = lPublicaciones.get(position);
-        holder.Descripcion.setText(publicacion.getRaza());
+        holder.Descripcion.setText(publicacion.getFecha());
         holder.Animal.setText(publicacion.getAnimal());
         holder.editar.setText(publicacion.getDescripcion());
         Picasso.get().load(publicacion.getImageUrl()).placeholder(R.mipmap.ic_launcher).into(holder.ImageUrl);
