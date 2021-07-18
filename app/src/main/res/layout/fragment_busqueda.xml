@@ -27,12 +27,10 @@
                 <ImageView
                     android:id="@+id/menu"
                     android:layout_width="40dp"
-                    android:layout_height="30dp"
+                    android:layout_height="40dp"
                     android:layout_alignParentStart="true"
-                    android:layout_marginStart="20dp"
-                    android:src="@drawable/ic_home"
-                    android:layout_marginLeft="20dp"
-                    android:layout_alignParentLeft="true" />
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/ic_menu" />
 
                 <ImageView
                     android:id="@+id/menu_animalesPublicados"
@@ -54,28 +52,20 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/bar">
+        android:layout_below="@id/bar"
+        android:layout_marginTop="10dp">
 
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_mascotas_perdidas"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            tools:listitem="@layout/lista_mascotas_usuario">
 
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_mascotas_perdidas"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="5dp"
-                tools:listitem="@layout/lista_mascotas_usuario">
-
-            </androidx.recyclerview.widget.RecyclerView>
-        </LinearLayout>
+        </androidx.recyclerview.widget.RecyclerView>
     </androidx.core.widget.NestedScrollView>
 
 
