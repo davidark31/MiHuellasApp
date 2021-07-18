@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,7 +25,11 @@ import com.example.mihuellasapp.MapsActivity;
 import com.example.mihuellasapp.Modelo.Mascota;
 import com.example.mihuellasapp.Modelo.MascotaPerdida;
 import com.example.mihuellasapp.Modelo.Publicacion;
+import com.example.mihuellasapp.PublicacionAnimalEncontrado;
 import com.example.mihuellasapp.R;
+import com.example.mihuellasapp.Registrar_MascotaActivity;
+import com.example.mihuellasapp.databinding.ActivityPublicacionesAnimalesPerdidosBinding;
+import com.example.mihuellasapp.publicacionesAnimalesPerdidosActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -38,12 +43,10 @@ import java.util.List;
 public class BusquedaFragment extends Fragment {
 
     private TextView nombre;
-    private RecyclerView recyclerView, recyclerView2;
+    private RecyclerView recyclerView;
     private List<MascotaPerdida> lMascotasPerdidas;
-    private List<Publicacion> lPublicaciones;
-    private AdaptadorPublicaciones publicacionesAdapter;
     private AdaptadorMascotasPerdidas mascotasPerdidasAdapter;
-    private Button irMapa;
+    private ImageView menu,animales;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,11 +54,9 @@ public class BusquedaFragment extends Fragment {
         // Inflate the layout for this fragment
         lMascotasPerdidas = new ArrayList<>();
         buscarMascotasPerdidas();
-
-        lPublicaciones = new ArrayList<>();
-        buscarPublicaciones();
-
         View view = inflater.inflate(R.layout.fragment_busqueda, container, false);
+        animales = view.findViewById(R.id.menu_animalesPublicados);
+
         recyclerView = view.findViewById(R.id.rv_mascotas_perdidas);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
@@ -63,32 +64,22 @@ public class BusquedaFragment extends Fragment {
         linearLayoutManager.setReverseLayout(true);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        recyclerView2 = view.findViewById(R.id.rv_publicaciones_usuarios);
-        recyclerView2.setHasFixedSize(true);
-        LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(getContext());
-        linearLayoutManager2.setStackFromEnd(true);
-        linearLayoutManager2.setReverseLayout(true);
-        recyclerView2.setLayoutManager(linearLayoutManager2);
 
-
-        irMapa = view.findViewById(R.id.botonMaps);
-
-        irMapa.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent next;
-                next = new Intent(getContext(), MapsActivity.class);
-                startActivity(next);
-            }
-        });
-
-        publicacionesAdapter = new AdaptadorPublicaciones(getContext(), lPublicaciones);
-        publicacionesAdapter.notifyDataSetChanged();
-        recyclerView2.setAdapter(publicacionesAdapter);
 
         mascotasPerdidasAdapter = new AdaptadorMascotasPerdidas(getContext(), lMascotasPerdidas);
         mascotasPerdidasAdapter.notifyDataSetChanged();
         recyclerView.setAdapter(mascotasPerdidasAdapter);
+
+
+        animales.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent next;
+                next = new Intent(getContext(), publicacionesAnimalesPerdidosActivity.class);
+                startActivity(next);
+            }
+        });
+
 
         return view;
     }
@@ -115,25 +106,7 @@ public class BusquedaFragment extends Fragment {
         });
     }
 
-    public void buscarPublicaciones() {
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("PAniEncontrados");
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                for (DataSnapshot snap1 : snapshot.getChildren()) {
-                    Publicacion p = snap1.getValue(Publicacion.class);
-                    lPublicaciones.add(p);
 
-                }
-                publicacionesAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(getContext(), "error al cargar" + error, Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
 
 
 }

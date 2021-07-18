@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,54 +7,76 @@
     tools:context=".Fragments.BusquedaFragment">
 
 
-    <LinearLayout
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/windowBackground">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/windowBackground">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <ImageView
+                    android:id="@+id/menu"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/ic_home"
+                    android:layout_marginLeft="20dp"
+                    android:layout_alignParentLeft="true" />
+
+                <ImageView
+                    android:id="@+id/menu_animalesPublicados"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@color/black"
+                    android:src="@mipmap/patitas"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_alignParentRight="true" />
+
+
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_below="@id/bar">
 
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/sv_busqueda"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:iconifiedByDefault="false"
-            app:layout_constraintTop_toTopOf="parent"
-            app:queryHint="Filtrar busqueda">
-
-
-
-        </androidx.appcompat.widget.SearchView>
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/botonMaps"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Mapa" />
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_mascotas_perdidas"
-            android:layout_width="match_parent"
-            android:layout_height="270dp"
-            android:layout_margin="5dp"
-            tools:listitem="@layout/lista_mascotas_usuario">
-
-        </androidx.recyclerview.widget.RecyclerView>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_publicaciones_usuarios"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            tools:listitem="@layout/lista_publicaciones_usuario" />
-    </LinearLayout>
+            android:orientation="vertical">
 
 
-</FrameLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_mascotas_perdidas"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                tools:listitem="@layout/lista_mascotas_usuario">
+
+            </androidx.recyclerview.widget.RecyclerView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</RelativeLayout>
