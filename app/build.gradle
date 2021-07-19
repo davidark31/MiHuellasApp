@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'com.onesignal.androidsdk.onesignal-gradle-plugin'
 }
 apply plugin: 'com.google.gms.google-services'
 
@@ -9,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.mihuellasapp"
-        minSdkVersion 16
+        minSdkVersion 24
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -57,7 +58,8 @@ dependencies {
     implementation 'com.karumi:dexter:6.2.3'
     implementation 'com.google.android.gms:play-services-location:15.0.1'
     implementation 'com.google.android.gms:play-services-location:17.1.0'
-
+    implementation 'com.onesignal:OneSignal:[4.0.0, 4.99.99]'
+    implementation 'com.facebook.android:facebook-android-sdk:11.1.0'
 
 
 }

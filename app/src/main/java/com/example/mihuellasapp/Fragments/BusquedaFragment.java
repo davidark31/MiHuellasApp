@@ -37,6 +37,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,6 +59,7 @@ public class BusquedaFragment extends Fragment {
         buscarMascotasPerdidas();
         View view = inflater.inflate(R.layout.fragment_busqueda, container, false);
         animales = view.findViewById(R.id.menu_animalesPublicados);
+        menu=view.findViewById(R.id.menu);
 
         recyclerView = view.findViewById(R.id.rv_mascotas_perdidas);
         recyclerView.setHasFixedSize(true);
@@ -80,8 +84,64 @@ public class BusquedaFragment extends Fragment {
             }
         });
 
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mensaje();
+            }
+        });
 
         return view;
+    }
+
+    private void mensaje(){
+        try {
+            String jsonResponse;
+
+            URL url = new URL("https://onesignal.com/api/v1/notifications");
+            HttpURLConnection con = (HttpURLConnection)url.openConnection();
+            con.setUseCaches(false);
+            con.setDoOutput(true);
+            con.setDoInput(true);
+
+            con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+            con.setRequestMethod("POST");
+
+            String strJsonBody = "{"
+                    +   "\"app_id\": \"d974c52c-d6b1-490b-afe6-0d6157f02877\","
+                    +   "\"include_player_ids\": [\"3dfd4d96-bd1f-4bf5-ba23-fc8250e52ccf\"],"
+                    +   "\"data\": {\"foo\": \"bar\"},"
+                    +   "\"contents\": {\"en\": \"English Message\"}"
+                    + "}";
+
+
+            System.out.println("strJsonBody:\n" + strJsonBody);
+
+            byte[] sendBytes = strJsonBody.getBytes("UTF-8");
+            con.setFixedLengthStreamingMode(sendBytes.length);
+
+            OutputStream outputStream = con.getOutputStream();
+            outputStream.write(sendBytes);
+
+            int httpResponse = con.getResponseCode();
+            System.out.println("httpResponse: " + httpResponse);
+/*
+            if (  httpResponse >= HttpURLConnection.HTTP_OK
+                    && httpResponse < HttpURLConnection.HTTP_BAD_REQUEST) {
+                Scanner scanner = new Scanner(con.getInputStream(), "UTF-8");
+                jsonResponse = scanner.useDelimiter("\\A").hasNext() ? scanner.next() : "";
+                scanner.close();
+            }
+            else {
+                Scanner scanner = new Scanner(con.getErrorStream(), "UTF-8");
+                jsonResponse = scanner.useDelimiter("\\A").hasNext() ? scanner.next() : "";
+                scanner.close();
+            }
+            System.out.println("jsonResponse:\n" + jsonResponse);
+*/
+        } catch(Throwable t) {
+            t.printStackTrace();
+        }
     }
 
 
