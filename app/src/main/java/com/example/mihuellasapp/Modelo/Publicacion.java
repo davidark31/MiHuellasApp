@@ -1,6 +1,6 @@
 package com.example.mihuellasapp.Modelo;
 
-public class Publicacion {
+public class Publicacion implements Comparable<Publicacion> {
 
     private String Id;
     private String Animal;
@@ -16,6 +16,7 @@ public class Publicacion {
     private Double Latitud;
     private Double Longitud;
     private String Fecha;
+    private int similutid;
 
     public Publicacion() {
     }
@@ -35,6 +36,32 @@ public class Publicacion {
         Latitud = latitud;
         Longitud = longitud;
         Fecha = fecha;
+    }
+
+    public Publicacion(String id, String animal, String tamano, String raza, String color, String color2, String sexo, String descripcion, String edad, String idDueno, String imageUrl, Double latitud, Double longitud, String fecha, int similutid) {
+        Id = id;
+        Animal = animal;
+        Tamano = tamano;
+        Raza = raza;
+        Color = color;
+        Color2 = color2;
+        Sexo = sexo;
+        Descripcion = descripcion;
+        Edad = edad;
+        IdDueno = idDueno;
+        ImageUrl = imageUrl;
+        Latitud = latitud;
+        Longitud = longitud;
+        Fecha = fecha;
+        this.similutid = similutid;
+    }
+
+    public int getSimilutid() {
+        return similutid;
+    }
+
+    public void setSimilutid(int similutid) {
+        this.similutid = similutid;
     }
 
     public String getId() {
@@ -147,5 +174,17 @@ public class Publicacion {
 
     public void setFecha(String fecha) {
         Fecha = fecha;
+    }
+
+    @Override
+    public int compareTo(Publicacion o) {
+        if (o.getSimilutid() > similutid) {
+            return -1;
+        } else {
+            if (o.getSimilutid() < similutid) {
+                return 1;
+            }
+        }
+        return 0;
     }
 }

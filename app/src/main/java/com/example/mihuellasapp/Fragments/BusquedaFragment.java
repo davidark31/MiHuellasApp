@@ -1,6 +1,7 @@
 package com.example.mihuellasapp.Fragments;
 
 import android.content.Intent;
+import android.content.pm.PackageInfo;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -60,6 +61,7 @@ public class BusquedaFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_busqueda, container, false);
         animales = view.findViewById(R.id.menu_animalesPublicados);
         menu=view.findViewById(R.id.menu);
+
 
         recyclerView = view.findViewById(R.id.rv_mascotas_perdidas);
         recyclerView.setHasFixedSize(true);

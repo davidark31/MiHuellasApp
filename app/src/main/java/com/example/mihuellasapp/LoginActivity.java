@@ -72,7 +72,6 @@ public class LoginActivity extends AppCompatActivity {
                             //  Toast.makeText(getApplicationContext(), token, Toast.LENGTH_SHORT).show();
                             Log.d("mensaje", token);
                         }
-
                     }
                 });
 */
