@@ -69,6 +69,8 @@ public class AdaptadorMascotasPerdidas extends RecyclerView.Adapter<AdaptadorMas
                 v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Latitud", mascotaP.getLatitud()).apply();
                 v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Longitud", mascotaP.getLongitud()).apply();
                 v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Recompensa", mascotaP.getRecompensa()).apply();
+                v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Contacto", mascotaP.getContacto()).apply();
+
                 v.getContext().startActivity(intent);
 
             }

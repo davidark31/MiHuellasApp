@@ -28,16 +28,6 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/txt_usuario_registro"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:ems="10"
-                android:hint="@string/usuario"
-                android:inputType="textPersonName"
-                android:importantForAutofill="no" />
-
-            <EditText
                 android:id="@+id/txt_nombre_registro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -46,6 +36,16 @@
                 android:hint="@string/nombre"
                 android:inputType="textPersonName"
                 android:importantForAutofill="no" />
+
+            <EditText
+                android:id="@+id/txt_telefono_registro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="Telefono"
+                android:importantForAutofill="no"
+                android:inputType="number" />
 
             <EditText
                 android:id="@+id/txt_correo_ingreso"

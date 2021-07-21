@@ -22,12 +22,13 @@ public class MascotaPerdida {
     private String Latitud;
     private String Longitud;
     private String Recompensa;
+    private String Contacto;
 
     public MascotaPerdida() {
     }
 
 
-    public MascotaPerdida(String id, String iDMascota, String nombre, String animal, String sexo, String color, String color2, String raza, String tamaño, String edad, String descripcion, String estado, String idDueño, String imageUrl, String descripcionSuceso, String fecha, String latitud, String longitud, String recompensa) {
+    public MascotaPerdida(String id, String iDMascota, String nombre, String animal, String sexo, String color, String color2, String raza, String tamaño, String edad, String descripcion, String estado, String idDueño, String imageUrl, String descripcionSuceso, String fecha, String latitud, String longitud, String recompensa, String contacto) {
         Id = id;
         this.iDMascota = iDMascota;
         Nombre = nombre;
@@ -47,6 +48,7 @@ public class MascotaPerdida {
         Latitud = latitud;
         Longitud = longitud;
         Recompensa = recompensa;
+        Contacto = contacto;
     }
 
     public String getId() {
@@ -199,5 +201,13 @@ public class MascotaPerdida {
 
     public void setRecompensa(String recompensa) {
         Recompensa = recompensa;
+    }
+
+    public String getContacto() {
+        return Contacto;
+    }
+
+    public void setContacto(String contacto) {
+        Contacto = contacto;
     }
 }

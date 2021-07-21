@@ -37,7 +37,7 @@ public class PublicacionMascotaPerdidaActivity extends AppCompatActivity impleme
     private GoogleMap mMap;
     private ImageView foto;
     private MascotaPerdida m;
-    private TextView nombre, animal, raza, sexo, color, color2, edad, tamaño, descripcion, suceso, fecha, recompensa;
+    private TextView nombre, animal, raza, sexo, color, color2, edad, tamaño, contacto,descripcion, suceso, fecha, recompensa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +64,8 @@ public class PublicacionMascotaPerdidaActivity extends AppCompatActivity impleme
         m.setLatitud(PublicacionMascotaPerdidaActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("Latitud", "none"));
         m.setLongitud(PublicacionMascotaPerdidaActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("Longitud", "none"));
         m.setRecompensa(PublicacionMascotaPerdidaActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("Recompensa", "none"));
+        m.setContacto(PublicacionMascotaPerdidaActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("Contacto", "none"));
+
 
         foto=findViewById(R.id.imageView2);
         Picasso.get().load(m.getImageUrl()).placeholder(R.mipmap.perfil).into(foto);
@@ -79,6 +81,7 @@ public class PublicacionMascotaPerdidaActivity extends AppCompatActivity impleme
         suceso = findViewById(R.id.txt_mascota_perdida_suceso);
         recompensa = findViewById(R.id.txt_mascota_perdida_recompensa);
         fecha = findViewById(R.id.txt_mascota_perdida_fecha);
+        contacto=findViewById(R.id.txt_mascota_perdida_contacto);
 
 
         nombre.setText(m.getNombre());
@@ -93,6 +96,7 @@ public class PublicacionMascotaPerdidaActivity extends AppCompatActivity impleme
         suceso.setText(m.getDescripcionSuceso());
         recompensa.setText(m.getRecompensa());
         fecha.setText(m.getFecha());
+        contacto.setText(m.getContacto());
 
 
         mapa = findViewById(R.id.mv_ubicacion_perdida);

@@ -17,17 +17,26 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.mihuellasapp.Modelo.MascotaPerdida;
+import com.example.mihuellasapp.Modelo.Publicacion;
+import com.example.mihuellasapp.Modelo.Usuario;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.theartofdev.edmodo.cropper.CropImage;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 
@@ -42,8 +51,7 @@ public class Registrar_MascotaActivity extends AppCompatActivity {
     private DatabaseReference base;
     private Uri imageUri;
     private String imageUrl;
-    private String edad;
-
+    private String edad, contacto;
 
 
     @Override
@@ -51,6 +59,7 @@ public class Registrar_MascotaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_mascota);
         //asociar variables
+        obtenerTelefonoUsuario(FirebaseAuth.getInstance().getUid());
         animal = (Spinner) findViewById(R.id.spn_animal);
         sexo = (Spinner) findViewById(R.id.spn_sexo_perfilMascota);
         raza = (Spinner) findViewById(R.id.spn_raza);
@@ -69,7 +78,6 @@ public class Registrar_MascotaActivity extends AppCompatActivity {
         base = FirebaseDatabase.getInstance().getReference();
 
 
-
         //Boton Registrar
         registrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,7 +92,6 @@ public class Registrar_MascotaActivity extends AppCompatActivity {
                 CropImage.activity().start(Registrar_MascotaActivity.this);
             }
         });
-
 
 
         //boton cancelar
@@ -131,7 +138,7 @@ public class Registrar_MascotaActivity extends AppCompatActivity {
 
 
             if (imageUri != null) {
-               final StorageReference filePath = FirebaseStorage.getInstance().getReference("FotoPerfilMascota").child(System.currentTimeMillis() + "." + obtenerExtensionArchivo(imageUri));
+                final StorageReference filePath = FirebaseStorage.getInstance().getReference("FotoPerfilMascota").child(System.currentTimeMillis() + "." + obtenerExtensionArchivo(imageUri));
                 StorageTask uploadTaskt = filePath.putFile(imageUri);
                 uploadTaskt.continueWithTask(new Continuation() {
                     @Override
@@ -150,7 +157,7 @@ public class Registrar_MascotaActivity extends AppCompatActivity {
                         String mascotaID = ref.push().getKey();
 
                         HashMap<String, Object> map = new HashMap<>();
-                        map.put("Id",mascotaID);
+                        map.put("Id", mascotaID);
                         map.put("Nombre", nombreString);
                         map.put("Animal", animalString);
                         map.put("Sexo", sexoString);
@@ -162,7 +169,8 @@ public class Registrar_MascotaActivity extends AppCompatActivity {
                         map.put("Edad", edad);
                         map.put("IdDueño", auth.getCurrentUser().getUid());
                         map.put("ImageUrl", imageUrl);
-                        map.put("Estado","En casa");
+                        map.put("Estado", "En casa");
+                        map.put("Contacto", contacto);
 
 
                         ref.child(mascotaID).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -195,16 +203,37 @@ public class Registrar_MascotaActivity extends AppCompatActivity {
 
     }
 
+    private void obtenerTelefonoUsuario(String s) {
+
+        Query query = FirebaseDatabase.getInstance().getReference().child("Usuarios").orderByChild("ID").startAt(s).endAt(s + "\uf8ff");
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                for (DataSnapshot snap1 : snapshot.getChildren()) {
+                    Usuario p = snap1.getValue(Usuario.class);
+                    contacto=p.getTelefono();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(Registrar_MascotaActivity.this, "error al cargar" + error, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
     private String obtenerExtensionArchivo(Uri uri) {
         return MimeTypeMap.getSingleton().getExtensionFromMimeType(getContentResolver().getType(uri));
     }
 
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable  Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
             imageUri = result.getUri();
 

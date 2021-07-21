@@ -80,6 +80,7 @@ public class MascotaPerdidaActivity extends AppCompatActivity {
         m.setImageUrl(MascotaPerdidaActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("ImageUrl", "none"));
         m.setIdDueño(MascotaPerdidaActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("IdDueño", "none"));
         m.setSexo(MascotaPerdidaActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("Sexo", "none"));
+        m.setContacto(MascotaPerdidaActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("Contacto", "none"));
 
 
         perfil = findViewById(R.id.iv_perfil_mascota);
@@ -155,7 +156,7 @@ public class MascotaPerdidaActivity extends AppCompatActivity {
 
 
                             DatabaseReference ref = FirebaseDatabase.getInstance().getReference("MascotasPerdidas");
-                            String mpID = ref.push().getKey();
+                            String mpID = m.getId();
 
                             HashMap<String, Object> map = new HashMap<>();
                             map.put("Id", mpID);
@@ -177,6 +178,7 @@ public class MascotaPerdidaActivity extends AppCompatActivity {
                             map.put("Longitud", longitud);
                             map.put("DescripcionSuceso", descripcionSucesoString);
                             map.put("Recompensa", recompensaString);
+                            map.put("Contacto",m.getContacto());
 
 
                             ref.child(mpID).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {

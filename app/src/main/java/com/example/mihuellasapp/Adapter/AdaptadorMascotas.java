@@ -93,7 +93,7 @@ public class AdaptadorMascotas extends RecyclerView.Adapter<AdaptadorMascotas.Vi
             public void onClick(View v) {
 
                 AlertDialog.Builder del = new AlertDialog.Builder(v.getContext());
-                del.setMessage("Estas seguro de cambiar estado a perdida?");
+                del.setMessage("Se ha perdido esta mascota?");
                 del.setCancelable(false);
                 del.setPositiveButton("Si", new DialogInterface.OnClickListener() {
                     @Override
@@ -112,6 +112,7 @@ public class AdaptadorMascotas extends RecyclerView.Adapter<AdaptadorMascotas.Vi
                         v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Tamaño", mascota.getTamaño()).apply();
                         v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("IdDueño", mascota.getIdDueño()).apply();
                         v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("ImageUrl", mascota.getImageUrl()).apply();
+                        v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Contacto", mascota.getContacto()).apply();
                         v.getContext().startActivity(intent);
 
                     }

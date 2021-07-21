@@ -91,9 +91,7 @@ public class publicacionesAnimalesPerdidosActivity extends AppCompatActivity {
                     lPublicaciones.add(p);
                 }
                 Collections.sort(lPublicaciones);
-                Publicacion l = lPublicaciones.get(3);
-                Toast.makeText(publicacionesAnimalesPerdidosActivity.this, "similitudes" + l.getSimilutid(), Toast.LENGTH_SHORT).show();
-                publicacionesAdapter.notifyDataSetChanged();
+               publicacionesAdapter.notifyDataSetChanged();
             }
 
             @Override

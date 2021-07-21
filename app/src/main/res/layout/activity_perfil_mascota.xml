@@ -13,7 +13,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout11"
-            android:layout_width="412dp"
+            android:layout_width="match_parent"
             android:layout_height="64dp"
             android:background="#F6E870">
 
@@ -31,16 +31,25 @@
                     android:textColor="#000000"
                     android:textSize="30sp" />
 
+                <ImageView
+                    android:id="@+id/iv_estado_casa"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/ic_home" />
+
                 <ImageButton
                     android:id="@+id/ib_eliminar"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:layout_marginStart="100dp"
-                    android:layout_marginLeft="100dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:background="@android:color/transparent"
                     android:scaleType="centerInside"
                     app:srcCompat="@mipmap/trash" />
+
             </LinearLayout>
 
 

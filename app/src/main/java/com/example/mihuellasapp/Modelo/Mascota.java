@@ -15,13 +15,14 @@ public class Mascota {
     private String Estado;
     private String IdDueño;
     private String ImageUrl;
+    private String Contacto;
 
 
     public Mascota() {
 
     }
 
-    public Mascota(String id, String nombre, String animal, String sexo, String color, String color2, String raza, String tamaño, String edad, String descripcion, String estado, String idDueño, String imageUrl) {
+    public Mascota(String id, String nombre, String animal, String sexo, String color, String color2, String raza, String tamaño, String edad, String descripcion, String estado, String idDueño, String imageUrl, String contacto) {
         Id = id;
         Nombre = nombre;
         Animal = animal;
@@ -35,6 +36,7 @@ public class Mascota {
         Estado = estado;
         IdDueño = idDueño;
         ImageUrl = imageUrl;
+        Contacto = contacto;
     }
 
     public String getId() {
@@ -139,5 +141,13 @@ public class Mascota {
 
     public void setImageUrl(String imageUrl) {
         ImageUrl = imageUrl;
+    }
+
+    public String getContacto() {
+        return Contacto;
+    }
+
+    public void setContacto(String contacto) {
+        Contacto = contacto;
     }
 }

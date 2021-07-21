@@ -96,7 +96,7 @@
                 android:layout_height="150dp"
                 android:ems="10"
                 android:gravity="start|top"
-                android:hint="Descripción"
+                android:hint="Descripción del suceso"
                 android:inputType="textMultiLine" />
 
             <Space

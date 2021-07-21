@@ -25,7 +25,7 @@ import java.util.HashMap;
 
 public class Registrarse_activity extends AppCompatActivity {
 
-    private EditText usuario, nombre, correo, contraseña;
+    private EditText  nombre, correo, contraseña, telefono;
     private TextView login;
     private Button registrar;
     private FirebaseAuth auth;
@@ -37,12 +37,12 @@ public class Registrarse_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrarse);
 
-        usuario = (EditText) findViewById(R.id.txt_usuario_registro);
         nombre = (EditText) findViewById(R.id.txt_nombre_registro);
         correo = (EditText) findViewById(R.id.txt_correo_ingreso);
         contraseña = (EditText) findViewById(R.id.txt_contraseña_ingreso);
         registrar = (Button) findViewById(R.id.btn_ingresar_usuario);
         login = (TextView) findViewById(R.id.register_user);
+        telefono = findViewById(R.id.txt_telefono_registro);
 
         auth = FirebaseAuth.getInstance();
         pd = new ProgressDialog(this);
@@ -52,7 +52,7 @@ public class Registrarse_activity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Registrarse_activity.this,LoginActivity.class));
+                startActivity(new Intent(Registrarse_activity.this, LoginActivity.class));
                 finish();
             }
         });
@@ -62,17 +62,17 @@ public class Registrarse_activity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                String usuarioString = usuario.getText().toString();
                 String nombreString = nombre.getText().toString();
+                String telefonoString = telefono.getText().toString();
                 String correoString = correo.getText().toString();
                 String contraseñaString = contraseña.getText().toString();
-                if (usuarioString.isEmpty() || nombreString.isEmpty() || correoString.isEmpty() || contraseñaString.isEmpty()) {
+                if ( telefonoString.isEmpty() || nombreString.isEmpty() || correoString.isEmpty() || contraseñaString.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Faltan Datos", Toast.LENGTH_SHORT).show();
                 } else {
                     if (contraseñaString.length() < 6) {
                         Toast.makeText(getApplicationContext(), "Contraseña muy corta", Toast.LENGTH_SHORT).show();
                     } else {
-                        registerUser(usuarioString, nombreString, correoString, contraseñaString);
+                        registerUser( nombreString,telefonoString, correoString, contraseñaString);
                     }
                 }
             }
@@ -81,7 +81,7 @@ public class Registrarse_activity extends AppCompatActivity {
     }
 
     //Metodo Registro Usuario
-    private void registerUser(String usuario, String nombre, String correo, String contraseña) {
+    private void registerUser( String nombre,String tel, String correo, String contraseña) {
         pd.setMessage("Espere...");
         pd.show();
         auth.createUserWithEmailAndPassword(correo, contraseña).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
@@ -89,8 +89,8 @@ public class Registrarse_activity extends AppCompatActivity {
             public void onSuccess(AuthResult authResult) {
                 HashMap<String, Object> map = new HashMap<>();
                 map.put("Nombre", nombre);
+                map.put("Telefono", tel);
                 map.put("Correo", correo);
-                map.put("Usuario", usuario);
                 map.put("ID", auth.getCurrentUser().getUid());
                 map.put("Contraseña", contraseña);
 

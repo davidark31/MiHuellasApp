@@ -27,6 +27,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
@@ -39,7 +40,7 @@ public class PerfilMascotaActivity extends AppCompatActivity {
     private RadioButton cachorro, adulto, anciano;
     private EditText descripcion, nombre;
     private TextView estado;
-    private ImageView foto;
+    private ImageView foto, estadoCasa;
     private Button cancelar, editar;
     private String edad;
     private Uri imageUri;
@@ -83,6 +84,7 @@ public class PerfilMascotaActivity extends AppCompatActivity {
         adulto = findViewById(R.id.rdb_adulto);
         anciano = findViewById(R.id.rdb_anciano);
         eliminar = findViewById(R.id.ib_eliminar);
+        estadoCasa = findViewById(R.id.iv_estado_casa);
 
 
         nombre.setText(m.getNombre());
@@ -95,6 +97,11 @@ public class PerfilMascotaActivity extends AppCompatActivity {
         descripcion.setText(m.getDescripcion());
         estado.setText(m.getEstado());
         Picasso.get().load(m.getImageUrl()).placeholder(R.mipmap.doggy).into(foto);
+
+
+        if (m.getEstado().equals("En casa")) {
+            estadoCasa.setVisibility(View.GONE);
+        }
 
 
         if (m.getEdad().equals("Cachorro")) {
@@ -126,6 +133,55 @@ public class PerfilMascotaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 actualizar();
+            }
+        });
+
+        estadoCasa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder del = new AlertDialog.Builder(PerfilMascotaActivity.this);
+                del.setMessage("Cambiar estado a En casa?");
+                del.setCancelable(false);
+                del.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        FirebaseDatabase.getInstance().getReference().child("Mascotas").child(m.getId()).child("Estado").setValue("En casa").addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                finish();
+                                Toast.makeText(getApplicationContext(), "Se ha cambiado el estado", Toast.LENGTH_SHORT).show();
+                                FirebaseDatabase.getInstance().getReference().child("MascotasPerdidas").child(m.getId()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        finish();
+                                        Toast.makeText(getApplicationContext(), "Se ha cambiado el estado", Toast.LENGTH_SHORT).show();
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(getApplicationContext(), "Error al eliminar " + e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                                    }
+                                });
+
+                              }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(getApplicationContext(), "Error al eliminar " + e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                            }
+                        });
+                    }
+                });
+
+                del.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int i) {
+                    }
+                });
+                del.show();
             }
         });
 
