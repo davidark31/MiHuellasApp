@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PublicacionMascotaPerdidaActivity">
+    tools:context=".AnimalEncontradoActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -21,18 +21,8 @@
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/comfortaa_bold"
                 android:gravity="center"
-                android:text="Mascota Perdida"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/txt_mascota_perdida_nombre"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="15dp"
-                android:text="Nombre"
-                android:textSize="20sp" />
+                android:text="Animal Encontrado"
+                android:textSize="30sp" />
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -103,7 +93,7 @@
                     android:textSize="18sp"
                     android:layout_weight="1"
                     android:text="Sexo"
-                     />
+                    />
 
                 <Space
                     android:layout_width="15dp"
@@ -301,7 +291,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
                     android:layout_weight="1"
-                    android:text="Descripción"
+                    android:text="Descripcion"
                     android:textSize="18sp" />
 
                 <Space
@@ -333,9 +323,9 @@
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
-                    android:textSize="18sp"
                     android:layout_weight="1"
-                    android:text="Fecha Extraviado" />
+                    android:text="Fecha Encontrado"
+                    android:textSize="18sp" />
 
                 <Space
                     android:layout_width="15dp"
@@ -344,72 +334,6 @@
 
                 <TextView
                     android:id="@+id/txt_mascota_perdida_fecha"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textSize="16sp"
-                    android:text="TextView" />
-
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView25"
-                    android:layout_width="70dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
-                    android:textSize="18sp"
-                    android:layout_weight="1"
-                    android:text="Suceso" />
-
-                <Space
-                    android:layout_width="15dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
-                <TextView
-                    android:id="@+id/txt_mascota_perdida_suceso"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="TextView"
-                    android:textSize="16sp" />
-
-                <Space
-                    android:layout_width="10dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView26"
-                    android:layout_width="70dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
-                    android:textSize="18sp"
-                    android:layout_weight="1"
-                    android:text="Recompensa" />
-
-                <Space
-                    android:layout_width="15dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
-                <TextView
-                    android:id="@+id/txt_mascota_perdida_recompensa"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

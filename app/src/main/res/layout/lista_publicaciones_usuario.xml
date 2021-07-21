@@ -26,14 +26,15 @@
 
         <LinearLayout
             android:layout_width="230dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/descripcion_publicacion_usuario"
-                android:layout_width="match_parent"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:maxLines="1"
@@ -44,9 +45,9 @@
 
             <TextView
                 android:id="@+id/animal_publicacion_usuario"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+                android:layout_width="220dp"
+                android:layout_height="match_parent"
+                android:gravity="start|fill"
                 android:maxLines="1"
                 android:text="@string/AnimalPublicacion"
                 android:textSize="14sp" />

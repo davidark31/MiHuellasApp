@@ -6,11 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mihuellasapp.AnimalEncontradoActivity;
 import com.example.mihuellasapp.EditarPublicacionActivity;
 import com.example.mihuellasapp.Modelo.Publicacion;
 import com.example.mihuellasapp.R;
@@ -45,12 +47,11 @@ public class AdaptadorPublicaciones extends RecyclerView.Adapter<AdaptadorPublic
         holder.Animal.setText(publicacion.getAnimal());
         holder.editar.setText(publicacion.getDescripcion());
         Picasso.get().load(publicacion.getImageUrl()).placeholder(R.mipmap.ic_launcher).into(holder.ImageUrl);
-        /*
-        holder.editar.setOnClickListener(new View.OnClickListener() {
+        holder.ver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(v.getContext(), EditarPublicacionActivity.class);
+                Intent intent = new Intent(v.getContext(), AnimalEncontradoActivity.class);
                 v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Id", publicacion.getId()).apply();
                 v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Sexo", publicacion.getSexo()).apply();
                 v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Animal", publicacion.getAnimal()).apply();
@@ -60,17 +61,18 @@ public class AdaptadorPublicaciones extends RecyclerView.Adapter<AdaptadorPublic
                 v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Edad", publicacion.getEdad()).apply();
                 v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Descripcion", publicacion.getDescripcion()).apply();
                 v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Tamaño", publicacion.getTamano()).apply();
-                v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("IdDueño", publicacion.getIdDueno()).apply();
+                v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("IdPublicador", publicacion.getIdPublicador()).apply();
                 v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("ImageUrl", publicacion.getImageUrl()).apply();
                 v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Latitud", String.valueOf(publicacion.getLatitud())).apply();
                 v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Longitud", String.valueOf(publicacion.getLongitud())).apply();
+                v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Contacto", String.valueOf(publicacion.getContacto())).apply();
                 v.getContext().startActivity(intent);
 
 
 
             }
         });
- */
+
 
 
     }
@@ -86,6 +88,7 @@ public class AdaptadorPublicaciones extends RecyclerView.Adapter<AdaptadorPublic
         public TextView Descripcion;
         public TextView Animal;
         public TextView editar;
+        public ImageView ver;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -93,6 +96,7 @@ public class AdaptadorPublicaciones extends RecyclerView.Adapter<AdaptadorPublic
             Animal = itemView.findViewById(R.id.txt_raza_publi);
             Descripcion = itemView.findViewById(R.id.txt_fecha_publi);
             editar = itemView.findViewById(R.id.txt_descripcion_publi);
+            ver = itemView.findViewById(R.id.iv_publi);
 
         }
     }

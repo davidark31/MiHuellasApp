@@ -2,6 +2,8 @@ package com.example.mihuellasapp;
 
 import android.app.Application;
 
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 import com.onesignal.OneSignal;
 
 public class ApplicationClass extends Application {
@@ -17,5 +19,8 @@ public class ApplicationClass extends Application {
         // OneSignal Initialization
         OneSignal.initWithContext(this);
         OneSignal.setAppId(ONESIGNAL_APP_ID);
+
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
     }
 }

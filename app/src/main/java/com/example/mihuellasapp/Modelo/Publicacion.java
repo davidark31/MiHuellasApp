@@ -11,17 +11,18 @@ public class Publicacion implements Comparable<Publicacion> {
     private String Sexo;
     private String Descripcion;
     private String Edad;
-    private String IdDueno;
+    private String IdPublicador;
     private String ImageUrl;
     private Double Latitud;
     private Double Longitud;
     private String Fecha;
     private int similutid;
+    private String Contacto;
 
     public Publicacion() {
     }
 
-    public Publicacion(String id, String animal, String tamano, String raza, String color, String color2, String sexo, String descripcion, String edad, String idDueno, String imageUrl, Double latitud, Double longitud, String fecha) {
+    public Publicacion(String id, String animal, String tamano, String raza, String color, String color2, String sexo, String descripcion, String edad, String idPublicador, String imageUrl, Double latitud, Double longitud, String fecha,String contacto) {
         Id = id;
         Animal = animal;
         Tamano = tamano;
@@ -31,14 +32,15 @@ public class Publicacion implements Comparable<Publicacion> {
         Sexo = sexo;
         Descripcion = descripcion;
         Edad = edad;
-        IdDueno = idDueno;
+        IdPublicador = idPublicador;
         ImageUrl = imageUrl;
         Latitud = latitud;
         Longitud = longitud;
         Fecha = fecha;
+        Contacto = contacto;
     }
 
-    public Publicacion(String id, String animal, String tamano, String raza, String color, String color2, String sexo, String descripcion, String edad, String idDueno, String imageUrl, Double latitud, Double longitud, String fecha, int similutid) {
+    public Publicacion(String id, String animal, String tamano, String raza, String color, String color2, String sexo, String descripcion, String edad, String idPublicador, String imageUrl, Double latitud, Double longitud, String fecha, int similutid,String contacto) {
         Id = id;
         Animal = animal;
         Tamano = tamano;
@@ -48,12 +50,13 @@ public class Publicacion implements Comparable<Publicacion> {
         Sexo = sexo;
         Descripcion = descripcion;
         Edad = edad;
-        IdDueno = idDueno;
+        IdPublicador = idPublicador;
         ImageUrl = imageUrl;
         Latitud = latitud;
         Longitud = longitud;
         Fecha = fecha;
         this.similutid = similutid;
+        Contacto=contacto;
     }
 
     public int getSimilutid() {
@@ -136,12 +139,12 @@ public class Publicacion implements Comparable<Publicacion> {
         Edad = edad;
     }
 
-    public String getIdDueno() {
-        return IdDueno;
+    public String getIdPublicador() {
+        return IdPublicador;
     }
 
-    public void setIdDueno(String idDueno) {
-        IdDueno = idDueno;
+    public void setIdPublicador(String idPublicador) {
+        IdPublicador = idPublicador;
     }
 
     public String getImageUrl() {
@@ -176,6 +179,15 @@ public class Publicacion implements Comparable<Publicacion> {
         Fecha = fecha;
     }
 
+
+    public String getContacto() {
+        return Contacto;
+    }
+
+    public void setContacto(String contacto) {
+        Contacto = contacto;
+    }
+
     @Override
     public int compareTo(Publicacion o) {
         if (o.getSimilutid() > similutid) {
@@ -187,4 +199,6 @@ public class Publicacion implements Comparable<Publicacion> {
         }
         return 0;
     }
+
+
 }

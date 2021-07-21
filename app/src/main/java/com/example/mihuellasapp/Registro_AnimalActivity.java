@@ -22,6 +22,7 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.mihuellasapp.Modelo.Usuario;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -32,8 +33,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
@@ -53,7 +58,7 @@ public class Registro_AnimalActivity extends AppCompatActivity {
     private RadioButton rbCacho, rbAdul, rbAnci;
     private Button btnGuardar, btnCancelar, obtenerCordenadas;
     private ImageButton foto;
-    private String edad;
+    private String edad,contactoString;
     private Double latitud, longitud;
 
     private Uri imageUri;
@@ -69,6 +74,7 @@ public class Registro_AnimalActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registro_animal);
 
 
+        obtenerTelefonoUsuario(FirebaseAuth.getInstance().getUid());
         foto = (ImageButton) findViewById(R.id.imb_Publicacion);
         spAnimal = (Spinner) findViewById(R.id.spn_tipo_animal);
         spTamaño = (Spinner) findViewById(R.id.spn_tamaño_animal);
@@ -238,11 +244,12 @@ public class Registro_AnimalActivity extends AppCompatActivity {
                         map.put("Sexo", sexo);
                         map.put("Descripcion", descripcion);
                         map.put("Edad", edad);
-                        map.put("IdDueno", auth.getCurrentUser().getUid());
+                        map.put("IdPublicador", auth.getCurrentUser().getUid());
                         map.put("ImageUrl", imageUrl);
                         map.put("Latitud", latitud);
                         map.put("Longitud", longitud);
                         map.put("Fecha",fechaPubli);
+                        map.put("Contacto",contactoString);
 
 
                         ref.child(publicacionID).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -277,6 +284,27 @@ public class Registro_AnimalActivity extends AppCompatActivity {
 
     private String obtenerExtensionArchivo(Uri uri) {
         return MimeTypeMap.getSingleton().getExtensionFromMimeType(getContentResolver().getType(uri));
+    }
+
+    private void obtenerTelefonoUsuario(String s) {
+
+        Query query = FirebaseDatabase.getInstance().getReference().child("Usuarios").orderByChild("ID").startAt(s).endAt(s + "\uf8ff");
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                for (DataSnapshot snap1 : snapshot.getChildren()) {
+                    Usuario p = snap1.getValue(Usuario.class);
+                    contactoString=p.getTelefono();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(Registro_AnimalActivity.this, "error al cargar" + error, Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
 

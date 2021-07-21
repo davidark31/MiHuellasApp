@@ -46,7 +46,6 @@ import java.util.List;
 
 public class BusquedaFragment extends Fragment {
 
-    private TextView nombre;
     private RecyclerView recyclerView;
     private List<MascotaPerdida> lMascotasPerdidas;
     private AdaptadorMascotasPerdidas mascotasPerdidasAdapter;
@@ -89,7 +88,7 @@ public class BusquedaFragment extends Fragment {
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mensaje();
+                //mensaje();
             }
         });
 
@@ -127,20 +126,7 @@ public class BusquedaFragment extends Fragment {
 
             int httpResponse = con.getResponseCode();
             System.out.println("httpResponse: " + httpResponse);
-/*
-            if (  httpResponse >= HttpURLConnection.HTTP_OK
-                    && httpResponse < HttpURLConnection.HTTP_BAD_REQUEST) {
-                Scanner scanner = new Scanner(con.getInputStream(), "UTF-8");
-                jsonResponse = scanner.useDelimiter("\\A").hasNext() ? scanner.next() : "";
-                scanner.close();
-            }
-            else {
-                Scanner scanner = new Scanner(con.getErrorStream(), "UTF-8");
-                jsonResponse = scanner.useDelimiter("\\A").hasNext() ? scanner.next() : "";
-                scanner.close();
-            }
-            System.out.println("jsonResponse:\n" + jsonResponse);
-*/
+
         } catch(Throwable t) {
             t.printStackTrace();
         }

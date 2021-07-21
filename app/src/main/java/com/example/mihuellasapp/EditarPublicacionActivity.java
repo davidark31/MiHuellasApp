@@ -21,16 +21,13 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.mihuellasapp.Modelo.Mascota;
 import com.example.mihuellasapp.Modelo.Publicacion;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -86,7 +83,7 @@ public class EditarPublicacionActivity extends AppCompatActivity implements OnMa
         p.setTamano(EditarPublicacionActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("Tamano", "none"));
         p.setDescripcion(EditarPublicacionActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("Descripcion", "none"));
         p.setImageUrl(EditarPublicacionActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("ImageUrl", "none"));
-        p.setIdDueno(EditarPublicacionActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("IdDueno", "none"));
+        p.setIdPublicador(EditarPublicacionActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("IdDueno", "none"));
         p.setSexo(EditarPublicacionActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("Sexo", "none"));
         p.setFecha(EditarPublicacionActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("Fecha", "none"));
 
@@ -242,7 +239,7 @@ public class EditarPublicacionActivity extends AppCompatActivity implements OnMa
             map.put("Tamano", tamañoString);
             map.put("Descripcion", descipcionString);
             map.put("Edad", edad);
-            map.put("IdDueno", p.getIdDueno());
+            map.put("IdDueno", p.getIdPublicador());
             map.put("ImageUrl", p.getImageUrl());
 
             ref.child(p.getId()).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {

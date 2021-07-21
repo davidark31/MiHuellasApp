@@ -36,11 +36,11 @@
                     android:id="@+id/menu_animalesPublicados"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:background="@color/black"
-                    android:src="@mipmap/patitas"
                     android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
                     android:layout_marginRight="10dp"
-                    android:layout_alignParentRight="true" />
+                    android:background="@android:color/transparent"
+                    android:src="@mipmap/pawprint" />
 
 
             </RelativeLayout>
