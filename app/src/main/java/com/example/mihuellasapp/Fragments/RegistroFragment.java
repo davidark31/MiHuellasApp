@@ -53,7 +53,7 @@ public class RegistroFragment extends Fragment {
         recyclerView.setLayoutManager(linearLayoutManager);
 
 
-        misPublicacionesAdapter = new AdaptadorMisPublicaciones( getContext(), lMisPublicaciones);
+        misPublicacionesAdapter = new AdaptadorMisPublicaciones(getContext(), lMisPublicaciones);
         misPublicacionesAdapter.notifyDataSetChanged();
         recyclerView.setAdapter(misPublicacionesAdapter);
 
@@ -71,7 +71,6 @@ public class RegistroFragment extends Fragment {
     }
 
 
-
     public void buscarMisPublicaciones() {
         //prueba carga
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("PAniEncontrados");
@@ -80,11 +79,13 @@ public class RegistroFragment extends Fragment {
             public void onDataChange(DataSnapshot snapshot) {
                 for (DataSnapshot snap1 : snapshot.getChildren()) {
                     Publicacion u = snap1.getValue(Publicacion.class);
-                    if (u.getIdPublicador().equals(FirebaseAuth.getInstance().getCurrentUser().getUid()))
-                        lMisPublicaciones.add(u);
+                    if (u != null) {
+                        if (u.getIdPublicador().equals(FirebaseAuth.getInstance().getCurrentUser().getUid()))
+                            lMisPublicaciones.add(u);
 
+                    }
+                    misPublicacionesAdapter.notifyDataSetChanged();
                 }
-                misPublicacionesAdapter.notifyDataSetChanged();
             }
 
             @Override

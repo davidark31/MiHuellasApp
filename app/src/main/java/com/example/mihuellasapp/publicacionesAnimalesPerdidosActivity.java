@@ -109,7 +109,7 @@ public class publicacionesAnimalesPerdidosActivity extends AppCompatActivity {
         if (m.getColor().equals(p.getColor())) {
             cont++;
         }
-        if (m.getColor2().equals(p.getColor())) {
+        if (m.getColor2().equals(p.getColor2())) {
             cont++;
         }
         if (m.getRaza().equals(p.getRaza())) {
