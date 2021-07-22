@@ -59,7 +59,7 @@ public class BusquedaFragment extends Fragment {
         buscarMascotasPerdidas();
         View view = inflater.inflate(R.layout.fragment_busqueda, container, false);
         animales = view.findViewById(R.id.menu_animalesPublicados);
-        menu=view.findViewById(R.id.menu);
+        //menu=view.findViewById(R.id.menu);
 
 
         recyclerView = view.findViewById(R.id.rv_mascotas_perdidas);
@@ -84,17 +84,18 @@ public class BusquedaFragment extends Fragment {
                 startActivity(next);
             }
         });
-
+/*
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //mensaje();
             }
         });
+*/
 
         return view;
     }
-
+/*
     private void mensaje(){
         try {
             String jsonResponse;
@@ -133,6 +134,8 @@ public class BusquedaFragment extends Fragment {
     }
 
 
+
+ */
     public void buscarMascotasPerdidas() {
         //prueba carga de mascotas
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("MascotasPerdidas");

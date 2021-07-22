@@ -47,7 +47,7 @@
                 android:id="@+id/animal_publicacion_usuario"
                 android:layout_width="220dp"
                 android:layout_height="match_parent"
-                android:gravity="start|fill"
+                android:gravity="center"
                 android:maxLines="1"
                 android:text="@string/AnimalPublicacion"
                 android:textSize="14sp" />

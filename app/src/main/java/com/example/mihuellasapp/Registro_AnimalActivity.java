@@ -168,6 +168,7 @@ public class Registro_AnimalActivity extends AppCompatActivity {
                         int latestLocationIndex = locationResult.getLocations().size() - 1;
                         latitud = locationResult.getLocations().get(latestLocationIndex).getLatitude();
                         longitud = locationResult.getLocations().get(latestLocationIndex).getLongitude();
+                        Toast.makeText(Registro_AnimalActivity.this, "Coordenadas Guardadas", Toast.LENGTH_SHORT).show();
                     }
                 }
 
