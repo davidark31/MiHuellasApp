@@ -16,8 +16,8 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?android:attr/windowBackground">
+            android:layout_height="60dp"
+            android:background="@mipmap/fondo_top">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -32,6 +32,14 @@
                     android:layout_alignParentLeft="true"
                     android:src="@drawable/ic_menu" />
 
+                <TextView
+                    android:id="@+id/textView30"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="55dp"
+                    android:text="Mascotas perdidas"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp" />
                 <ImageView
                     android:id="@+id/menu_animalesPublicados"
                     android:layout_width="40dp"
@@ -40,7 +48,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="10dp"
                     android:background="@android:color/transparent"
-                    android:src="@mipmap/pawprint" />
+                    android:src="@mipmap/patitas" />
 
 
             </RelativeLayout>

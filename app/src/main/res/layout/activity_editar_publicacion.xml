@@ -54,14 +54,13 @@
                     android:orientation="horizontal">
 
 
-
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/img"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_marginLeft="40dp"
                         android:layout_marginTop="20dp"
-                        app:srcCompat="@mipmap/doggy" />
+                        app:srcCompat="@mipmap/lost" />
 
                 </LinearLayout>
 

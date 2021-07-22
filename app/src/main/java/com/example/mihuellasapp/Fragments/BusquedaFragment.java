@@ -153,8 +153,4 @@ public class BusquedaFragment extends Fragment {
             }
         });
     }
-
-
-
-
 }

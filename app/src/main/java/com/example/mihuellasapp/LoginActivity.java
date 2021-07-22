@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,10 +42,9 @@ import java.util.Arrays;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private Button btn_ingresar;
+    private ImageButton btn_ingresar,registrar;
     private EditText correo, contraseña;
     private FirebaseAuth mAuth;
-    private TextView registrar;
     private LoginButton loginButton;
     private CallbackManager callbackManager;
 
@@ -73,17 +73,17 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
 */
-
+/*
         callbackManager = CallbackManager.Factory.create();
         loginButton = (LoginButton) findViewById(R.id.login_button);
-        loginButton.setReadPermissions("email");
+        loginButton.setReadPermissions("email");*/
         // If using in a fragment
 
         // Callback registration
 
 
-        btn_ingresar = (Button) findViewById(R.id.btn_ingresar_usuario);
-        registrar = (TextView) findViewById(R.id.register_user);
+        btn_ingresar = findViewById(R.id.btn_ingresar_usuario2);
+        registrar = findViewById(R.id.ib_registarse);
         contraseña = (EditText) findViewById(R.id.txt_contraseña_ingreso);
         correo = (EditText) findViewById(R.id.txt_correo_ingreso);
         mAuth = FirebaseAuth.getInstance();
@@ -108,7 +108,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-
+/*
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
@@ -135,9 +135,9 @@ public class LoginActivity extends AppCompatActivity {
                     goMainScreen();
                 }
             }
-        };
+        };*/
     }
-
+/*
     private void handleFacebookAccessToken(AccessToken accessToken) {
         progressBar.setVisibility(View.VISIBLE);
         loginButton.setVisibility(View.GONE);
@@ -154,23 +154,28 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+*/
 
+    /*
     private void goMainScreen() {
         Intent intent = new Intent(this, PrincipalActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
 
+    */
+
+/*
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
     }
-
+*/
     @Override
     protected void onStart() {
         super.onStart();
-        firebaseAuth.addAuthStateListener(firebaseAuthListener);
+     //   firebaseAuth.addAuthStateListener(firebaseAuthListener);
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
             startActivity(new Intent(LoginActivity.this, PrincipalActivity.class));
             finish();
@@ -180,7 +185,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        firebaseAuth.removeAuthStateListener(firebaseAuthListener);
+      //  firebaseAuth.removeAuthStateListener(firebaseAuthListener);
     }
 
 

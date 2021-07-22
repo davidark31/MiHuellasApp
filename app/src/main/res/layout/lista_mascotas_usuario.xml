@@ -33,7 +33,7 @@
                 android:fontFamily="@font/comfortaa_bold"
                 android:maxLines="1"
                 android:text="@string/nombre"
-                android:textColor="@color/design_default_color_primary_dark"
+                android:textColor="#1660F1"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 

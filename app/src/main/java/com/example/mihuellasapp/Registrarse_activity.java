@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,9 +26,8 @@ import java.util.HashMap;
 
 public class Registrarse_activity extends AppCompatActivity {
 
-    private EditText  nombre, correo, contraseña, telefono;
-    private TextView login;
-    private Button registrar;
+    private EditText nombre, correo, contraseña, telefono;
+    private ImageButton registrar, login;
     private FirebaseAuth auth;
     private DatabaseReference mRootRef;
     private ProgressDialog pd;
@@ -40,8 +40,8 @@ public class Registrarse_activity extends AppCompatActivity {
         nombre = (EditText) findViewById(R.id.txt_nombre_registro);
         correo = (EditText) findViewById(R.id.txt_correo_ingreso);
         contraseña = (EditText) findViewById(R.id.txt_contraseña_ingreso);
-        registrar = (Button) findViewById(R.id.btn_ingresar_usuario);
-        login = (TextView) findViewById(R.id.register_user);
+        registrar = findViewById(R.id.ib_registrarse);
+        login = findViewById(R.id.ib_volver_ingresa);
         telefono = findViewById(R.id.txt_telefono_registro);
 
         auth = FirebaseAuth.getInstance();
@@ -66,13 +66,13 @@ public class Registrarse_activity extends AppCompatActivity {
                 String telefonoString = telefono.getText().toString();
                 String correoString = correo.getText().toString();
                 String contraseñaString = contraseña.getText().toString();
-                if ( telefonoString.isEmpty() || nombreString.isEmpty() || correoString.isEmpty() || contraseñaString.isEmpty()) {
+                if (telefonoString.isEmpty() || nombreString.isEmpty() || correoString.isEmpty() || contraseñaString.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Faltan Datos", Toast.LENGTH_SHORT).show();
                 } else {
                     if (contraseñaString.length() < 6) {
                         Toast.makeText(getApplicationContext(), "Contraseña muy corta", Toast.LENGTH_SHORT).show();
                     } else {
-                        registerUser( nombreString,telefonoString, correoString, contraseñaString);
+                        registerUser(nombreString, telefonoString, correoString, contraseñaString);
                     }
                 }
             }
@@ -81,7 +81,7 @@ public class Registrarse_activity extends AppCompatActivity {
     }
 
     //Metodo Registro Usuario
-    private void registerUser( String nombre,String tel, String correo, String contraseña) {
+    private void registerUser(String nombre, String tel, String correo, String contraseña) {
         pd.setMessage("Espere...");
         pd.show();
         auth.createUserWithEmailAndPassword(correo, contraseña).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
