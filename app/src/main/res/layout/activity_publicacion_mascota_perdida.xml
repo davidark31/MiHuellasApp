@@ -22,7 +22,8 @@
                 android:fontFamily="@font/comfortaa_bold"
                 android:gravity="center"
                 android:text="Mascota Perdida"
-                android:textSize="24sp" />
+                android:textColor="#1660F1"
+                android:textSize="34sp" />
 
             <TextView
                 android:id="@+id/txt_mascota_perdida_nombre"
@@ -32,7 +33,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"
                 android:text="Nombre"
-                android:textSize="20sp" />
+                android:textSize="24sp" />
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -54,7 +55,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:text="DATOS:"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"

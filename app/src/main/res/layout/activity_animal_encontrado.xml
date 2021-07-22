@@ -22,7 +22,8 @@
                 android:fontFamily="@font/comfortaa_bold"
                 android:gravity="center"
                 android:text="Animal Encontrado"
-                android:textSize="30sp" />
+                android:textColor="#1660F1"
+                android:textSize="34sp" />
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -44,7 +45,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:text="DATOS:"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"

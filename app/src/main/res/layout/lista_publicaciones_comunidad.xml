@@ -15,8 +15,7 @@
             android:id="@+id/iv_publi"
             android:layout_width="50dp"
             android:layout_height="60dp"
-            android:layout_gravity="start"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/ic_eye" />
 
