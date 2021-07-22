@@ -32,7 +32,21 @@
         <item>Macho</item>
         <item>Hembra</item>
     </string-array>
+    <string-array name="sexo2">
+        <item>No lo sé</item>
+        <item>Macho</item>
+        <item>Hembra</item>
+    </string-array>
     <string-array name="Color">
+        <item>Amarillo</item>
+        <item>Blanco</item>
+        <item>Negro</item>
+        <item>Gris</item>
+        <item>Cafe Claro</item>
+        <item>Cafe Oscuro</item>
+    </string-array>
+    <string-array name="Color2">
+        <item>Ninguno</item>
         <item>Amarillo</item>
         <item>Blanco</item>
         <item>Negro</item>
@@ -47,6 +61,27 @@
         <item>Pastor Aleman</item>
         <item>Pitbull</item>
         <item>Rottweiler</item>
+        <item>Poodle</item>
+        <item>Bulldog</item>
+        <item>Gato Habana</item>
+        <item>Gato Comúm Europeo</item>
+        <item>Gato Rafamuffin</item>
+        <item>Gato Britanico pelo largo</item>
+    </string-array>
+    <string-array name="Raza2">
+        <item>Quiltro</item>
+        <item>No lo sé</item>
+        <item>Golden</item>
+        <item>Chihuhua</item>
+        <item>Pastor Aleman</item>
+        <item>Pitbull</item>
+        <item>Rottweiler</item>
+        <item>Poodle</item>
+        <item>Bulldog</item>
+        <item>Gato Habana</item>
+        <item>Gato Comúm Europeo</item>
+        <item>Gato Rafamuffin</item>
+        <item>Gato Britanico pelo largo</item>
     </string-array>
     <string-array name="tamaño">
         <item>Chico</item>
