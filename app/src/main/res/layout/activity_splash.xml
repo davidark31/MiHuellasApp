@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/fondo_top"
+    android:background="@mipmap/fondo_bot2"
     android:gravity="center"
     tools:context=".SplashActivity">
 
@@ -12,7 +12,7 @@
         android:id="@+id/imageView"
         android:layout_width="300dp"
         android:layout_height="500dp"
-        app:srcCompat="@mipmap/huellas_app_logo" />
+        app:srcCompat="@mipmap/casi_logo" />
 
     <ProgressBar
         android:id="@+id/progressBar"
