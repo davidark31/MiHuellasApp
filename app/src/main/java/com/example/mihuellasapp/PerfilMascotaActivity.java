@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -98,6 +99,16 @@ public class PerfilMascotaActivity extends AppCompatActivity {
         estado.setText(m.getEstado());
         Picasso.get().load(m.getImageUrl()).placeholder(R.mipmap.doggy).into(foto);
 
+
+        if (m.getEstado().equals("En casa")) {
+           estado.setTextColor(Color.parseColor("#3CAD4C"));
+
+        } else {
+            if (m.getEstado().equals("Perdido")) {
+               estado.setTextColor(Color.parseColor("#E83030"));
+            }
+
+        }
 
         if (m.getEstado().equals("En casa")) {
             estadoCasa.setVisibility(View.GONE);

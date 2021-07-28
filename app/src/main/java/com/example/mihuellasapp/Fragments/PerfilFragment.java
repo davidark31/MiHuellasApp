@@ -35,7 +35,6 @@ import java.util.List;
 public class PerfilFragment extends Fragment {
 
     private ImageButton logOut, nuevaMascota;
-    private TextView nombre;
     private RecyclerView recyclerView;
     private List<Mascota> lMascotas;
     private AdaptadorMascotas mascotasAdapter;
@@ -63,8 +62,6 @@ public class PerfilFragment extends Fragment {
 
         nuevaMascota = view.findViewById(R.id.img_agregar);
         logOut = view.findViewById(R.id.logout);
-        nombre = view.findViewById(R.id.tv_titulo);
-        nombre.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
 
 
         //Pantalla Nueva Mascota
@@ -82,7 +79,7 @@ public class PerfilFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                Toast.makeText(getContext(), "Saliendo", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Saliendo..", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(getContext(), LoginActivity.class));
             }
         });

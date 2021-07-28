@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="110dp"
+    android:background="@mipmap/animalito"
     android:padding="10dp">
 
     <LinearLayout
@@ -13,8 +14,10 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img_publi"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
             android:src="@mipmap/ic_launcher" />
 
         <LinearLayout
@@ -63,13 +66,13 @@
 
     <ImageView
         android:id="@+id/iv_ver_mascota_perdida"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="15dp"
         android:background="@android:color/transparent"
-        app:srcCompat="@drawable/ic_eye"
+        app:srcCompat="@mipmap/ojito"
         tools:ignore="VectorDrawableCompat" />
 
 </RelativeLayout>

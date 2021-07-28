@@ -10,31 +10,31 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?android:attr/windowBackground">
+        android:layout_height="60dp"
+        android:background="@color/white">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="@mipmap/fondo_top">
+            android:background="@android:color/transparent">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:gravity="center">
 
 
                 <TextView
                     android:id="@+id/textView30"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="55dp"
+                    android:layout_marginStart="60dp"
                     android:text="Mascotas perdidas"
-                    android:textColor="#FFFFFF"
-                    android:textSize="24sp"
-                    android:layout_marginLeft="55dp" />
+                    android:textColor="#1660F1"
+                    android:textSize="24sp" />
+
                 <ImageView
                     android:id="@+id/menu_animalesPublicados"
                     android:layout_width="40dp"
@@ -43,7 +43,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="10dp"
                     android:background="@android:color/transparent"
-                    android:src="@mipmap/patitas" />
+                    android:src="@mipmap/patita" />
 
 
             </RelativeLayout>
@@ -66,7 +66,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginEnd="5dp"
             android:layout_marginRight="5dp"
-            tools:listitem="@layout/lista_mascotas_usuario">
+            tools:listitem="@layout/lista_mascotas_perdidas">
 
         </androidx.recyclerview.widget.RecyclerView>
     </androidx.core.widget.NestedScrollView>

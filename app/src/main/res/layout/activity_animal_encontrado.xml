@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="10dp"
     tools:context=".AnimalEncontradoActivity">
 
     <ScrollView
@@ -13,16 +14,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_height="60dp"
+                android:background="@mipmap/fondo_top_registro"
                 android:fontFamily="@font/comfortaa_bold"
                 android:gravity="center"
                 android:text="Animal Encontrado"
-                android:textColor="#1660F1"
+                android:textColor="#FFFFFF"
                 android:textSize="34sp" />
 
             <ImageView
@@ -45,6 +46,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:text="DATOS:"
+                android:textColor="@color/black"
                 android:textSize="20sp" />
 
             <LinearLayout
@@ -58,9 +60,10 @@
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
-                    android:textSize="18sp"
                     android:layout_weight="1"
-                    android:text="Animal" />
+                    android:text="Animal"
+                    android:textColor="#ff3832"
+                    android:textSize="18sp" />
 
                 <Space
                     android:layout_width="15dp"
@@ -80,6 +83,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -91,10 +95,10 @@
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
-                    android:textSize="18sp"
                     android:layout_weight="1"
                     android:text="Sexo"
-                    />
+                    android:textColor="#ff3832"
+                    android:textSize="18sp" />
 
                 <Space
                     android:layout_width="15dp"
@@ -106,14 +110,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="16sp"
-                    android:text="TextView" />
+                    android:text="TextView"
+                    android:textSize="16sp" />
 
                 <Space
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -125,9 +130,10 @@
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
-                    android:textSize="18sp"
                     android:layout_weight="1"
-                    android:text="Color" />
+                    android:text="Color"
+                    android:textColor="#ff3832"
+                    android:textSize="18sp" />
 
                 <Space
                     android:layout_width="15dp"
@@ -139,14 +145,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="16sp"
-                    android:text="TextView" />
+                    android:text="TextView"
+                    android:textSize="16sp" />
 
                 <Space
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -158,9 +165,10 @@
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
-                    android:textSize="18sp"
                     android:layout_weight="1"
-                    android:text="Segundo\nColor " />
+                    android:text="Segundo\nColor "
+                    android:textColor="#ff3832"
+                    android:textSize="18sp" />
 
                 <Space
                     android:layout_width="15dp"
@@ -173,14 +181,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
-                    android:textSize="16sp"
-                    android:text="TextView" />
+                    android:text="TextView"
+                    android:textSize="16sp" />
 
                 <Space
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -192,9 +201,10 @@
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
-                    android:textSize="18sp"
                     android:layout_weight="1"
-                    android:text="Raza" />
+                    android:text="Raza"
+                    android:textColor="#ff3832"
+                    android:textSize="18sp" />
 
                 <Space
                     android:layout_width="15dp"
@@ -206,14 +216,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="16sp"
-                    android:text="TextView" />
+                    android:text="TextView"
+                    android:textSize="16sp" />
 
                 <Space
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -225,9 +236,10 @@
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
-                    android:textSize="18sp"
                     android:layout_weight="1"
-                    android:text="Tamaño" />
+                    android:text="Tamaño"
+                    android:textColor="#ff3832"
+                    android:textSize="18sp" />
 
                 <Space
                     android:layout_width="15dp"
@@ -239,14 +251,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="16sp"
-                    android:text="TextView" />
+                    android:text="TextView"
+                    android:textSize="16sp" />
 
                 <Space
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -258,9 +271,10 @@
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
-                    android:textSize="18sp"
                     android:layout_weight="1"
-                    android:text="Edad" />
+                    android:text="Edad"
+                    android:textColor="#ff3832"
+                    android:textSize="18sp" />
 
                 <Space
                     android:layout_width="15dp"
@@ -272,14 +286,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="16sp"
-                    android:text="TextView" />
+                    android:text="TextView"
+                    android:textSize="16sp" />
 
                 <Space
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -293,6 +308,7 @@
                     android:layout_marginStart="50dp"
                     android:layout_weight="1"
                     android:text="Descripcion"
+                    android:textColor="#ff3832"
                     android:textSize="18sp" />
 
                 <Space
@@ -313,6 +329,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -326,6 +343,7 @@
                     android:layout_marginStart="50dp"
                     android:layout_weight="1"
                     android:text="Fecha Encontrado"
+                    android:textColor="#ff3832"
                     android:textSize="18sp" />
 
                 <Space
@@ -338,8 +356,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="16sp"
-                    android:text="TextView" />
+                    android:text="TextView"
+                    android:textSize="16sp" />
 
                 <Space
                     android:layout_width="wrap_content"
@@ -360,6 +378,7 @@
                     android:layout_marginStart="50dp"
                     android:layout_weight="1"
                     android:text="Contacto"
+                    android:textColor="#ff3832"
                     android:textSize="18sp" />
 
                 <Space
@@ -372,8 +391,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="16sp"
-                    android:text="TextView" />
+                    android:text="TextView"
+                    android:textSize="16sp" />
 
                 <Space
                     android:layout_width="wrap_content"
@@ -387,8 +406,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
                 android:gravity="center"
-                android:text="Ubicación"
+                android:text="UBICACIÓN"
+                android:textColor="#ff3832"
                 android:textSize="20sp" />
 
             <com.google.android.gms.maps.MapView

@@ -58,11 +58,12 @@ public class AdaptadorMisPublicaciones extends RecyclerView.Adapter<AdaptadorMis
                 v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Edad", publicacion.getEdad()).apply();
                 v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Descripcion", publicacion.getDescripcion()).apply();
                 v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Tamaño", publicacion.getTamano()).apply();
-                v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("IdDueño", publicacion.getIdPublicador()).apply();
+                v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("IdDueno", publicacion.getIdPublicador()).apply();
                 v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("ImageUrl", publicacion.getImageUrl()).apply();
                 v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Latitud", String.valueOf(publicacion.getLatitud())).apply();
                 v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Longitud", String.valueOf(publicacion.getLongitud())).apply();
                 v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Fecha", publicacion.getFecha()).apply();
+                v.getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit().putString("Contacto", publicacion.getContacto()).apply();
                 v.getContext().startActivity(intent);
 
 

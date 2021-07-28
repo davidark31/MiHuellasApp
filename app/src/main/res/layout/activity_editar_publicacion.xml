@@ -13,26 +13,22 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout11"
-            android:layout_width="412dp"
+            android:layout_width="match_parent"
             android:layout_height="64dp"
             android:background="#F6E870">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-
-                <ImageButton
-                    android:id="@+id/ib_eliminar"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@android:color/transparent"
-                    android:scaleType="centerInside"
-                    app:srcCompat="@mipmap/trash" />
-            </LinearLayout>
+            <ImageButton
+                android:id="@+id/ib_eliminar"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                android:background="@android:color/transparent"
+                android:scaleType="centerInside"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@mipmap/trash" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -48,22 +44,6 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/img"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_marginLeft="40dp"
-                        android:layout_marginTop="20dp"
-                        app:srcCompat="@mipmap/lost" />
-
-                </LinearLayout>
-
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="15dp" />
@@ -77,6 +57,14 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:orientation="vertical">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/img"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginTop="20dp"
+                            app:srcCompat="@mipmap/lost" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -92,6 +80,7 @@
                                 android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
                                 android:text="Animal"
+                                android:textColor="#ff3832"
                                 android:textSize="20sp" />
 
                             <Space
@@ -122,6 +111,7 @@
                                 android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
                                 android:text="Sexo"
+                                android:textColor="#ff3832"
                                 android:textSize="20sp" />
 
                             <Space
@@ -151,6 +141,7 @@
                                 android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
                                 android:text="Raza"
+                                android:textColor="#ff3832"
                                 android:textSize="20sp" />
 
                             <Space
@@ -180,6 +171,7 @@
                                 android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
                                 android:text="Color"
+                                android:textColor="#ff3832"
                                 android:textSize="20sp" />
 
                             <Space
@@ -209,6 +201,7 @@
                                 android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
                                 android:text="Segundo\nColor"
+                                android:textColor="#ff3832"
                                 android:textSize="20sp" />
 
                             <Space
@@ -238,6 +231,7 @@
                                 android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
                                 android:text="Tamaño"
+                                android:textColor="#ff3832"
                                 android:textSize="20sp" />
 
                             <Space
@@ -267,6 +261,7 @@
                                 android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
                                 android:text="Edad"
+                                android:textColor="#ff3832"
                                 android:textSize="20sp" />
 
                             <Space
@@ -320,6 +315,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Descripción / Lugar"
+                                android:textColor="#ff3832"
                                 android:textSize="20sp" />
 
                             <EditText
@@ -360,9 +356,10 @@
 
                             <Button
                                 android:id="@+id/btn_cancelar"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="140dp"
+                                android:layout_height="40dp"
                                 android:layout_weight="1"
+                                android:background="#C6C3C3"
                                 android:text="@string/cancelar" />
 
                             <Space
@@ -372,9 +369,10 @@
 
                             <Button
                                 android:id="@+id/btn_editar_mascota"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="140dp"
+                                android:layout_height="40dp"
                                 android:layout_weight="1"
+                                android:background="@mipmap/fondo_top"
                                 android:text="@string/btn_Editar" />
 
                             <Space

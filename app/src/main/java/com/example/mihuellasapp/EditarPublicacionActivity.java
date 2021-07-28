@@ -71,7 +71,7 @@ public class EditarPublicacionActivity extends AppCompatActivity implements OnMa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_publicacion);
 
-        verificarPermiso();
+        //verificarPermiso();
 
         p = new Publicacion();
         p.setId(EditarPublicacionActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("Id", "none"));
@@ -86,6 +86,8 @@ public class EditarPublicacionActivity extends AppCompatActivity implements OnMa
         p.setIdPublicador(EditarPublicacionActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("IdDueno", "none"));
         p.setSexo(EditarPublicacionActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("Sexo", "none"));
         p.setFecha(EditarPublicacionActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("Fecha", "none"));
+        p.setContacto(EditarPublicacionActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("Contacto", "none"));
+
 
         String latitudString = EditarPublicacionActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("Latitud", "none");
         String longitudString = EditarPublicacionActivity.this.getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("Longitud","none");
@@ -239,8 +241,12 @@ public class EditarPublicacionActivity extends AppCompatActivity implements OnMa
             map.put("Tamano", tamañoString);
             map.put("Descripcion", descipcionString);
             map.put("Edad", edad);
-            map.put("IdDueno", p.getIdPublicador());
+            map.put("IdPublicador", p.getIdPublicador());
             map.put("ImageUrl", p.getImageUrl());
+            map.put("Latitud", p.getLatitud());
+            map.put("Longitud", p.getLongitud());
+            map.put("Fecha", p.getFecha());
+            map.put("Contacto", p.getContacto());
 
             ref.child(p.getId()).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override

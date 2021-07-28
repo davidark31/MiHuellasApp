@@ -17,12 +17,12 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_height="60dp"
+                android:background="@mipmap/fondo_top"
                 android:fontFamily="@font/comfortaa_bold"
                 android:gravity="center"
                 android:text="Mascota Perdida"
-                android:textColor="#1660F1"
+                android:textColor="@color/colorWhite"
                 android:textSize="34sp" />
 
             <TextView
@@ -33,7 +33,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"
                 android:text="Nombre"
-                android:textSize="24sp" />
+                android:textColor="#1660F1"
+                android:textSize="28sp" />
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -55,6 +56,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:text="DATOS:"
+                android:textColor="@color/black"
                 android:textSize="20sp" />
 
             <LinearLayout
@@ -68,9 +70,10 @@
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
-                    android:textSize="18sp"
                     android:layout_weight="1"
-                    android:text="Animal" />
+                    android:text="Animal"
+                    android:textColor="#1660F1"
+                    android:textSize="18sp" />
 
                 <Space
                     android:layout_width="15dp"
@@ -101,10 +104,10 @@
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
-                    android:textSize="18sp"
                     android:layout_weight="1"
                     android:text="Sexo"
-                     />
+                    android:textColor="#1660F1"
+                    android:textSize="18sp" />
 
                 <Space
                     android:layout_width="15dp"
@@ -135,9 +138,10 @@
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
-                    android:textSize="18sp"
                     android:layout_weight="1"
-                    android:text="Color" />
+                    android:text="Color"
+                    android:textColor="#1660F1"
+                    android:textSize="18sp" />
 
                 <Space
                     android:layout_width="15dp"
@@ -168,9 +172,10 @@
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
-                    android:textSize="18sp"
                     android:layout_weight="1"
-                    android:text="Segundo\nColor " />
+                    android:text="Segundo\nColor "
+                    android:textColor="#1660F1"
+                    android:textSize="18sp" />
 
                 <Space
                     android:layout_width="15dp"
@@ -202,9 +207,10 @@
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
-                    android:textSize="18sp"
                     android:layout_weight="1"
-                    android:text="Raza" />
+                    android:text="Raza"
+                    android:textColor="#1660F1"
+                    android:textSize="18sp" />
 
                 <Space
                     android:layout_width="15dp"
@@ -235,9 +241,10 @@
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
-                    android:textSize="18sp"
                     android:layout_weight="1"
-                    android:text="Tamaño" />
+                    android:text="Tamaño"
+                    android:textColor="#1660F1"
+                    android:textSize="18sp" />
 
                 <Space
                     android:layout_width="15dp"
@@ -268,9 +275,10 @@
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
-                    android:textSize="18sp"
                     android:layout_weight="1"
-                    android:text="Edad" />
+                    android:text="Edad"
+                    android:textColor="#1660F1"
+                    android:textSize="18sp" />
 
                 <Space
                     android:layout_width="15dp"
@@ -303,6 +311,7 @@
                     android:layout_marginStart="50dp"
                     android:layout_weight="1"
                     android:text="Descripción"
+                    android:textColor="#1660F1"
                     android:textSize="18sp" />
 
                 <Space
@@ -334,9 +343,10 @@
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
-                    android:textSize="18sp"
                     android:layout_weight="1"
-                    android:text="Fecha Extraviado" />
+                    android:text="Fecha Extraviado"
+                    android:textColor="#1660F1"
+                    android:textSize="18sp" />
 
                 <Space
                     android:layout_width="15dp"
@@ -367,9 +377,10 @@
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
-                    android:textSize="18sp"
                     android:layout_weight="1"
-                    android:text="Suceso" />
+                    android:text="Suceso"
+                    android:textColor="#1660F1"
+                    android:textSize="18sp" />
 
                 <Space
                     android:layout_width="15dp"
@@ -400,9 +411,10 @@
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
-                    android:textSize="18sp"
                     android:layout_weight="1"
-                    android:text="Recompensa" />
+                    android:text="Recompensa"
+                    android:textColor="#1660F1"
+                    android:textSize="18sp" />
 
                 <Space
                     android:layout_width="15dp"
@@ -436,6 +448,7 @@
                     android:layout_marginStart="50dp"
                     android:layout_weight="1"
                     android:text="Contacto"
+                    android:textColor="#1660F1"
                     android:textSize="18sp" />
 
                 <Space
@@ -464,7 +477,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:text="Ubicación"
+                android:text="UBICACIÓN"
+                android:textColor="#1660F1"
                 android:textSize="20sp" />
 
             <com.google.android.gms.maps.MapView

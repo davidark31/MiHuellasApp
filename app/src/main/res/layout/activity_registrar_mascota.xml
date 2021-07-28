@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,32 +14,38 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="40dp"
-                android:textStyle="bold"
-                android:gravity="center_horizontal"
+                android:layout_height="50dp"
+                android:layout_marginBottom="20dp"
+                android:background="@mipmap/fondo_top"
+                android:gravity="center|center_horizontal"
                 android:text="Registro Nueva Mascota"
-                android:textSize="20sp" />
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="10dp"
+                tools:layout_editor_absoluteY="10dp" />
 
             <ImageButton
                 android:id="@+id/imb_foto"
-                android:layout_width="84dp"
-                android:layout_height="54dp"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginBottom="10dp"
-                android:scaleType="centerInside"
+                android:background="@android:color/transparent"
+                android:scaleType="centerCrop"
                 app:srcCompat="@mipmap/img" />
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -50,6 +56,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
                     android:text="Nombre"
+                    android:textColor="#1660F1"
                     android:textSize="20sp" />
 
                 <Space
@@ -73,6 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="30dp"
+                android:layout_marginLeft="15dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -83,6 +91,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
                     android:text="Animal"
+                    android:textColor="#1660F1"
                     android:textSize="20sp" />
 
                 <Space
@@ -103,6 +112,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="30dp"
+                android:layout_marginLeft="15dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -112,8 +122,9 @@
                     android:layout_marginStart="5dp"
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
-                    android:textSize="20sp"
-                    android:text="Sexo" />
+                    android:text="Sexo"
+                    android:textColor="#1660F1"
+                    android:textSize="20sp" />
 
                 <Space
                     android:layout_width="50sp"
@@ -132,6 +143,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="30dp"
+                android:layout_marginLeft="15dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -140,9 +152,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:layout_marginLeft="5dp"
-                    android:textSize="20sp"
                     android:layout_weight="1"
-                    android:text="Raza" />
+                    android:text="Raza"
+                    android:textColor="#1660F1"
+                    android:textSize="20sp" />
 
                 <Space
                     android:layout_width="50sp"
@@ -161,17 +174,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="30dp"
+                android:layout_marginLeft="15dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/textView12"
                     android:layout_width="40dp"
-                    android:textSize="20sp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
-                    android:text="Color" />
+                    android:text="Color"
+                    android:textColor="#1660F1"
+                    android:textSize="20sp" />
 
                 <Space
                     android:layout_width="50sp"
@@ -182,6 +197,7 @@
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+
                     android:entries="@array/Color" />
 
             </LinearLayout>
@@ -190,6 +206,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="30dp"
+                android:layout_marginLeft="15dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -200,6 +217,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
                     android:text="Segundo\nColor"
+                    android:textColor="#1660F1"
                     android:textSize="20sp" />
 
                 <Space
@@ -219,6 +237,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="30dp"
+                android:layout_marginLeft="15dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -228,8 +247,9 @@
                     android:layout_marginStart="5dp"
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
-                    android:textSize="20sp"
-                    android:text="Tamaño" />
+                    android:text="Tamaño"
+                    android:textColor="#1660F1"
+                    android:textSize="20sp" />
 
                 <Space
                     android:layout_width="50sp"
@@ -248,6 +268,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="30dp"
+                android:layout_marginLeft="15dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -258,6 +279,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
                     android:text="Edad"
+                    android:textColor="#1660F1"
                     android:textSize="20sp" />
 
                 <Space
@@ -304,6 +326,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="30dp"
+                android:layout_marginLeft="15dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -311,6 +334,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Descripción"
+                    android:textColor="#1660F1"
                     android:textSize="20sp" />
 
                 <EditText
@@ -336,9 +360,10 @@
 
                 <Button
                     android:id="@+id/btn_cancelar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="140dp"
+                    android:layout_height="40dp"
                     android:layout_weight="1"
+                    android:background="#C6C3C3"
                     android:text="@string/cancelar" />
 
                 <Space
@@ -348,9 +373,10 @@
 
                 <Button
                     android:id="@+id/btn_editar_mascota"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="140dp"
+                    android:layout_height="40dp"
                     android:layout_weight="1"
+                    android:background="@mipmap/fondo_top"
                     android:text="@string/btn_registrar" />
 
                 <Space
@@ -366,4 +392,4 @@
         </LinearLayout>
     </ScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

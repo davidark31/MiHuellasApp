@@ -77,13 +77,12 @@ public class RegistroFragment extends Fragment {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
+                lMisPublicaciones.clear();
                 for (DataSnapshot snap1 : snapshot.getChildren()) {
                     Publicacion u = snap1.getValue(Publicacion.class);
-                    if (u != null) {
                         if (u.getIdPublicador().equals(FirebaseAuth.getInstance().getCurrentUser().getUid()))
                             lMisPublicaciones.add(u);
 
-                    }
                     misPublicacionesAdapter.notifyDataSetChanged();
                 }
             }
