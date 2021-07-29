@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ece8fe"
     tools:context=".EditarPublicacionActivity">
 
     <LinearLayout
@@ -16,6 +17,18 @@
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:background="#F6E870">
+
+            <TextView
+                android:id="@+id/textView31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Editar"
+                android:textSize="34sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
                 android:id="@+id/ib_eliminar"
@@ -44,10 +57,6 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="15dp" />
-
                 <ScrollView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
@@ -62,7 +71,7 @@
                             android:id="@+id/img"
                             android:layout_width="100dp"
                             android:layout_height="100dp"
-                            android:layout_marginLeft="40dp"
+                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="20dp"
                             app:srcCompat="@mipmap/lost" />
 
@@ -80,7 +89,7 @@
                                 android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
                                 android:text="Animal"
-                                android:textColor="#ff3832"
+                                android:textColor="#5537c6"
                                 android:textSize="20sp" />
 
                             <Space
@@ -111,7 +120,7 @@
                                 android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
                                 android:text="Sexo"
-                                android:textColor="#ff3832"
+                                android:textColor="#5537c6"
                                 android:textSize="20sp" />
 
                             <Space
@@ -141,7 +150,7 @@
                                 android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
                                 android:text="Raza"
-                                android:textColor="#ff3832"
+                                android:textColor="#5537c6"
                                 android:textSize="20sp" />
 
                             <Space
@@ -171,7 +180,7 @@
                                 android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
                                 android:text="Color"
-                                android:textColor="#ff3832"
+                                android:textColor="#5537c6"
                                 android:textSize="20sp" />
 
                             <Space
@@ -201,7 +210,7 @@
                                 android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
                                 android:text="Segundo\nColor"
-                                android:textColor="#ff3832"
+                                android:textColor="#5537c6"
                                 android:textSize="20sp" />
 
                             <Space
@@ -231,7 +240,7 @@
                                 android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
                                 android:text="Tamaño"
-                                android:textColor="#ff3832"
+                                android:textColor="#5537c6"
                                 android:textSize="20sp" />
 
                             <Space
@@ -261,7 +270,7 @@
                                 android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
                                 android:text="Edad"
-                                android:textColor="#ff3832"
+                                android:textColor="#5537c6"
                                 android:textSize="20sp" />
 
                             <Space
@@ -315,7 +324,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Descripción / Lugar"
-                                android:textColor="#ff3832"
+                                android:textColor="#5537c6"
                                 android:textSize="20sp" />
 
                             <EditText
@@ -389,8 +398,6 @@
                 </ScrollView>
 
             </LinearLayout>
-
-
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

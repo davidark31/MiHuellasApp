@@ -60,9 +60,9 @@ public class AdaptadorMascotas extends RecyclerView.Adapter<AdaptadorMascotas.Vi
             }
 
         }
-  /*      if (mascota.getEstado().equals("Perdido")) {
+        if (mascota.getEstado().equals("Perdido")) {
             holder.perdida.setVisibility(View.INVISIBLE);
-        }*/
+        }
         holder.estado.setText(mascota.getEstado());
         Picasso.get().load(mascota.getImageUrl()).placeholder(R.mipmap.ic_launcher).into(holder.imagenMascota);
         holder.editar.setOnClickListener(new View.OnClickListener() {

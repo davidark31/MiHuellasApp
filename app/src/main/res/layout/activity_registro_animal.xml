@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ece8fe"
     android:orientation="vertical"
     tools:context=".Registro_AnimalActivity">
 
@@ -21,7 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginBottom="40dp"
-                android:background="@mipmap/fondo_top_registro"
+                android:background="#5537c6"
                 android:gravity="center|center_horizontal"
                 android:text="Publicación Animal Extraviado"
                 android:textColor="#FFFFFF"
@@ -53,7 +54,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
                     android:text="Animal"
-                    android:textColor="#ff3832"
+                    android:textColor="#5537c6"
                     android:textSize="20sp" />
 
                 <Space
@@ -73,8 +74,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="30dp"
                 android:layout_marginLeft="15dp"
+                android:layout_marginTop="30dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -85,7 +86,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
                     android:text="Sexo"
-                    android:textColor="#ff3832"
+                    android:textColor="#5537c6"
                     android:textSize="20sp" />
 
                 <Space
@@ -104,8 +105,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="30dp"
                 android:layout_marginLeft="15dp"
+                android:layout_marginTop="30dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -116,7 +117,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
                     android:text="Raza"
-                    android:textColor="#ff3832"
+                    android:textColor="#5537c6"
                     android:textSize="20sp" />
 
                 <Space
@@ -135,8 +136,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="30dp"
                 android:layout_marginLeft="15dp"
+                android:layout_marginTop="30dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -147,7 +148,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
                     android:text="Color"
-                    android:textColor="#ff3832"
+                    android:textColor="#5537c6"
                     android:textSize="20sp" />
 
                 <Space
@@ -166,8 +167,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="30dp"
                 android:layout_marginLeft="15dp"
+                android:layout_marginTop="30dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -178,7 +179,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
                     android:text="Segundo \nColor"
-                    android:textColor="#ff3832"
+                    android:textColor="#5537c6"
                     android:textSize="20sp" />
 
                 <Space
@@ -197,8 +198,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="30dp"
                 android:layout_marginLeft="15dp"
+                android:layout_marginTop="30dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -209,7 +210,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
                     android:text="Tamaño"
-                    android:textColor="#ff3832"
+                    android:textColor="#5537c6"
                     android:textSize="20sp" />
 
                 <Space
@@ -228,8 +229,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="30dp"
                 android:layout_marginLeft="15dp"
+                android:layout_marginTop="30dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -240,7 +241,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
                     android:text="Edad"
-                    android:textColor="#ff3832"
+                    android:textColor="#5537c6"
                     android:textSize="20sp" />
 
                 <Space
@@ -286,8 +287,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="30dp"
                 android:layout_marginLeft="15dp"
+                android:layout_marginTop="30dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -295,7 +296,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Descripción / Lugar"
-                    android:textColor="#ff3832"
+                    android:textColor="#5537c6"
                     android:textSize="20sp" />
 
                 <EditText
@@ -311,8 +312,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="30dp"
                 android:layout_marginLeft="15dp"
+                android:layout_marginTop="30dp"
                 android:orientation="horizontal">
 
 

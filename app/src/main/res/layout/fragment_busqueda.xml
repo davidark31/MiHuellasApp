@@ -10,43 +10,60 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/bar"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/white">
+        android:layout_height="130dp"
+        android:background="@mipmap/top_perros_perdidos_2">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="match_parent"
             android:background="@android:color/transparent">
 
-            <RelativeLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:background="@android:color/transparent"
                 android:gravity="center">
 
+
+                <ImageView
+                    android:id="@+id/imageView13"
+                    android:layout_width="105dp"
+                    android:layout_height="105dp"
+                    android:layout_marginStart="-5dp"
+                    android:src="@mipmap/perrito_lupa"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/textView30"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="60dp"
-                    android:text="Mascotas perdidas"
-                    android:textColor="#1660F1"
-                    android:textSize="24sp" />
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="@font/comfortaa_bold"
+                    android:text="Mascotas\nperdidas"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView13"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/menu_animalesPublicados"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
                     android:background="@android:color/transparent"
-                    android:src="@mipmap/patita" />
+                    android:src="@mipmap/patitas"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
 
-            </RelativeLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -56,7 +73,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/bar"
-        android:layout_marginTop="10dp">
+        android:background="#c8fbfe">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_mascotas_perdidas"

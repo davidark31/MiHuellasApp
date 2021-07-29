@@ -9,32 +9,44 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="130dp"
         android:background="?android:attr/windowBackground">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="@mipmap/fondo_top_registro">
+            android:layout_height="match_parent"
+            android:background="@mipmap/fondo_animales_encontrados">
 
-            <RelativeLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
 
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView30"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@mipmap/gatito_celu" />
 
                 <TextView
                     android:id="@+id/textView30"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginLeft="50dp"
-                    android:text="Animales Encontrados"
+                    android:fontFamily="@font/comfortaa_bold"
+                    android:text="Animales\nEncontrados"
                     android:textColor="#FFFFFF"
-                    android:textSize="24sp" />s
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />s
 
 
-            </RelativeLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -44,7 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/bar"
-        android:layout_marginTop="10dp">
+        android:background="#ece8fe">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_publicaciones_usuarios"

@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="right"
                 android:text="TextView"
-                android:textColor="#ff3832"
+                android:textColor="#5537c6"
                 android:textSize="20sp" />
 
             <TextView

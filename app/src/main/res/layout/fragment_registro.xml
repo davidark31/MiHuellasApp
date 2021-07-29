@@ -14,7 +14,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="235dp"
-            android:background="@mipmap/fondo_top_registro">
+            android:background="@mipmap/fondo_animales_encontrados">
 
             <Button
                 android:id="@+id/btn_publicar"

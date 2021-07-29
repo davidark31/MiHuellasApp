@@ -20,15 +20,16 @@
                 android:id="@+id/textView10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/poppins_semibold"
                 android:gravity="center"
                 android:text="Registro Mascota Perdida"
+                android:textColor="#1660F1"
                 android:textSize="28sp" />
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="15dp" />
+                android:layout_height="40dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -53,6 +54,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_weight="1"
+                    android:textColor="@color/black"
                     android:textSize="20sp" />
 
                 <Space
@@ -64,12 +66,13 @@
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="25dp" />
+                android:layout_height="40dp" />
 
             <Button
                 android:id="@+id/btn_fecha_perdido"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
+                android:background="#C6C3C3"
                 android:text="Último Día Visto" />
 
             <Space
@@ -79,11 +82,12 @@
             <Button
                 android:id="@+id/btn_ubicacion_mascota_perdida"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
+                android:layout_height="50dp"
+                android:background="@mipmap/fondo_top"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="Última localización"
                 android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
                 android:textSize="18sp" />
 
             <Space
@@ -93,9 +97,9 @@
             <EditText
                 android:id="@+id/txt_descripcionSuceso"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="80dp"
                 android:ems="10"
-                android:gravity="start|top"
+                android:gravity="center"
                 android:hint="Descripción del suceso"
                 android:inputType="textMultiLine" />
 
@@ -127,9 +131,10 @@
 
                 <Button
                     android:id="@+id/btn_cancelar_perdido"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
                     android:layout_weight="1"
+                    android:background="#C6C3C3"
                     android:text="@string/cancelar" />
 
                 <Space
@@ -139,9 +144,10 @@
 
                 <Button
                     android:id="@+id/btn_cambiar_estado_perdido"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
                     android:layout_weight="1"
+                    android:background="@mipmap/top_perros_perdidos_2"
                     android:text="Publicar" />
 
                 <Space
